@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/edtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium_2"
+        android:background="@drawable/white_background_rounded_corner"
+        android:elevation="@dimen/margin_small"
+        android:hint="@string/lbl_search_play_books"
+        android:textAlignment="textStart"
+        app:icon="@drawable/ic_baseline_search_black_24dp"
+        app:iconTint="@color/secondaryTextColor" />
+
+    <com.padc.ponnya.thelibraryapp.views.components.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/margin_medium_3"
+        android:elevation="@dimen/margin_small"
+        android:src="@drawable/profile"
+        app:firstArcColor="@color/blue"
+        app:fourthArcColor="@color/dark_orange"
+        app:innerCircleColor="@color/white"
+        app:secondArcColor="@color/green"
+        app:thirdArcColor="@color/yellow" />
+
+</RelativeLayout>

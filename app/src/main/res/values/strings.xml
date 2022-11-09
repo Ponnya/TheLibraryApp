@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TheLibraryApp</string>
+    <string name="lbl_search_play_books">Search Play Books</string>
 </resources>
