@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="firstArcColor" format="color"/>
+        <attr name="secondArcColor" format="color"/>
+        <attr name="thirdArcColor" format="color"/>
+        <attr name="fourthArcColor" format="color"/>
+        <attr name="innerCircleColor" format="color"/>
+    </declare-styleable>
+</resources>
