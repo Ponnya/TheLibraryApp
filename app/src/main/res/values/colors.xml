@@ -17,4 +17,8 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#5F6963</color>
+
+    <color name="transparencyGray">#1A5F6963</color>
+    <color name="whiteTransparent">#B3FFFFFF</color>
+    <color name="carouselBackgroundColor">#EFEFEF</color>
 </resources>

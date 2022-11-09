@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="@dimen/margin_medium_3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivBookCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_cover" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnMore"
+            android:layout_width="@dimen/width_height_headphone"
+            android:layout_height="@dimen/width_height_headphone"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:src="@drawable/ic_baseline_more_horiz_white_24dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivHeadPhone"
+            android:layout_width="@dimen/width_height_headphone"
+            android:layout_height="@dimen/width_height_headphone"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:background="@drawable/black_background_rounded_corner"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_baseline_headset_white_24dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCheck"
+            android:layout_width="@dimen/width_height_headphone"
+            android:layout_height="@dimen/width_height_headphone"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:background="@drawable/black_background_rounded_corner"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_baseline_check_white_24dp" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

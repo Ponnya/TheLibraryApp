@@ -38,4 +38,7 @@
     <dimen name="height_best_actor">180dp</dimen>
     <dimen name="width_best_actor">150dp</dimen>
     <dimen name="height_collapsing_toolbar_movie_detail">300dp</dimen>
+    <dimen name="width_height_headphone">30dp</dimen>
+    <dimen name="height_carousel">200dp</dimen>
+    <dimen name="padding_carousel">45dp</dimen>
 </resources>

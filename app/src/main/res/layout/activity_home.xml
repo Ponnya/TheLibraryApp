@@ -6,10 +6,28 @@
     tools:context=".activities.HomeActivity">
 
     <include
+        android:id="@+id/layoutSearchBar"
         layout="@layout/view_pod_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutSearchBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerReadingBook"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_carousel"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:paddingStart="@dimen/padding_carousel"
+                android:paddingEnd="@dimen/padding_carousel" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
