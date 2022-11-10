@@ -27,6 +27,7 @@
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:paddingStart="@dimen/padding_carousel"
                 android:paddingEnd="@dimen/padding_carousel" />
+
         </RelativeLayout>
     </ScrollView>
 

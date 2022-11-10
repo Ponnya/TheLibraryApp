@@ -7,4 +7,10 @@
         <attr name="fourthArcColor" format="color"/>
         <attr name="innerCircleColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="StraightProgressBar">
+        <attr name="progressNumber" format="integer"/>
+        <attr name="progressBarColor" format="color"/>
+        <attr name="backgroundLineColor" format="color"/>
+    </declare-styleable>
 </resources>

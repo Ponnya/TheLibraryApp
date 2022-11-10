@@ -21,4 +21,5 @@
     <color name="transparencyGray">#1A5F6963</color>
     <color name="whiteTransparent">#B3FFFFFF</color>
     <color name="carouselBackgroundColor">#EFEFEF</color>
+    <color name="lightGrayColor">#3C3C3C</color>
 </resources>
