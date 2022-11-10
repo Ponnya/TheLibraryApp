@@ -29,9 +29,9 @@
             android:id="@+id/ivHeadPhone"
             android:layout_width="@dimen/width_height_headphone"
             android:layout_height="@dimen/width_height_headphone"
-            android:layout_alignParentBottom="true"
+            android:layout_above="@id/progressBar"
             android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:background="@drawable/black_background_rounded_corner"
             android:padding="@dimen/margin_small"
             android:src="@drawable/ic_baseline_headset_white_24dp" />
@@ -40,13 +40,26 @@
             android:id="@+id/ivCheck"
             android:layout_width="@dimen/width_height_headphone"
             android:layout_height="@dimen/width_height_headphone"
+            android:layout_above="@id/progressBar"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:background="@drawable/black_background_rounded_corner"
             android:padding="@dimen/margin_small"
             android:src="@drawable/ic_baseline_check_white_24dp" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_progress_bar"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            app:backgroundLineColor="@color/lightGrayColor"
+            app:progressBarColor="@color/white"
+            app:progressNumber="40"
+            android:layout_marginBottom="@dimen/margin_medium_2" />
+
     </RelativeLayout>
 
 
