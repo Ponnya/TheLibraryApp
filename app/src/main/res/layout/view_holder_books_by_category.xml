@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCategoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:maxLines="1"
+        android:text="More Like Don't Make Me Think,"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/btnSeeMore"
+        android:layout_width="@dimen/width_height_headphone"
+        android:layout_height="@dimen/width_height_headphone"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_navigate_next_light_blue_24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCategoryLabel"
+        android:clipToPadding="false"
+        android:paddingEnd="@dimen/margin_medium_2" />
+
+
+</RelativeLayout>

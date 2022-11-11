@@ -2,15 +2,18 @@ package com.padc.ponnya.thelibraryapp.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.padc.ponnya.thelibraryapp.adapters.BooksByCategoryAdapter
 import com.padc.ponnya.thelibraryapp.adapters.ReadingBooksAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ActivityHomeBinding
 import kotlin.math.abs
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var mBooksByCategoryAdapter: BooksByCategoryAdapter
 
     private lateinit var mReadingBooksAdapter: ReadingBooksAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpVisaCardViewPager2()
+        setUpRecyclerView()
     }
 
     private fun setUpVisaCardViewPager2() {
@@ -39,6 +43,13 @@ class HomeActivity : AppCompatActivity() {
 
         binding.viewPagerReadingBook.setPageTransformer(compositePageTransformer)
 
+    }
+
+    private fun setUpRecyclerView() {
+        mBooksByCategoryAdapter = BooksByCategoryAdapter()
+        binding.rvBooksByCategory.adapter = mBooksByCategoryAdapter
+        binding.rvBooksByCategory.layoutManager =
+            LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
     }
 
 }

@@ -46,5 +46,7 @@
     <dimen name="width_showcases">260dp</dimen>
     <dimen name="height_straight_line">2dp</dimen>
     <dimen name="height_bottom_navigation">75dp</dimen>
+    <dimen name="width_books">125dp</dimen>
+    <dimen name="height_book_cover">175dp</dimen>
 
 </resources>

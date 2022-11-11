@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -59,6 +60,14 @@
                 android:layout_below="@id/tabLayoutGenre"
                 android:background="@color/straightLineColor" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBooksByCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tabLayoutGenre"
+                android:clipToPadding="false"
+                android:paddingBottom="106dp" />
+
 
         </RelativeLayout>
     </ScrollView>
@@ -71,10 +80,10 @@
         android:elevation="@dimen/margin_small"
         android:paddingTop="@dimen/margin_medium"
         android:paddingBottom="@dimen/margin_medium_2"
-        app:itemIconTint="@drawable/bottom_nav_item_color"
+        app:itemIconTint="@color/bottom_nav_item_color"
         app:itemTextAppearanceActive="@style/MyBottomNavigationView"
         app:itemTextAppearanceInactive="@style/MyBottomNavigationView"
-        app:itemTextColor="@drawable/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
         app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>
