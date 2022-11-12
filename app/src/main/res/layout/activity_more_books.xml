@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/btnBackToHomeScreen"
+        android:layout_width="@dimen/width_height_headphone"
+        android:layout_height="@dimen/width_height_headphone"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_navigate_before_light_blue_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnBackToHomeScreen"
+        android:layout_alignBottom="@id/btnBackToHomeScreen"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="More Like Don't Make Me Think,"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/straightLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_straight_line"
+        android:layout_below="@id/tvCategory"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="@color/straightLineColor" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMoreBooks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/straightLine"
+        android:clipToPadding="false"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/margin_medium_2"
+
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+
+</RelativeLayout>

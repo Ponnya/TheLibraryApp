@@ -23,6 +23,9 @@ class HomeActivity : AppCompatActivity() {
 
         setUpVisaCardViewPager2()
         setUpRecyclerView()
+        binding.layoutSearchBar.ivProfile.setOnClickListener {
+            startActivity(MoreBooksActivity.newIntent(this))
+        }
     }
 
     private fun setUpVisaCardViewPager2() {

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/width_ebooks"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_medium_2"
+    android:layout_marginTop="@dimen/margin_medium_2">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewEbook"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_book_cover"
+        app:cardCornerRadius="@dimen/margin_medium">
+
+        <ImageView
+            android:id="@+id/ivEbookCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_cover" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnEbookSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:src="@drawable/ic_baseline_more_horiz_white_24dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEbookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardViewEbook"
+        android:maxLines="1"
+        android:text="English for Everyone"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="@dimen/text_small" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEbookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvEbookName"
+        android:maxLines="1"
+        android:text="DK"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="@dimen/text_small" />
+
+</RelativeLayout>

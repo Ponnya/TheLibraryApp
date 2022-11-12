@@ -11,7 +11,7 @@
         android:layout_marginTop="@dimen/margin_medium_2"
         android:maxLines="1"
         android:text="More Like Don't Make Me Think,"
-        android:textColor="@color/black"
+        android:textColor="@color/primaryTextColor"
         android:textSize="@dimen/text_regular_2x"
         android:textStyle="bold" />
 
