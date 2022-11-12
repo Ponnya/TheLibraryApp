@@ -58,6 +58,27 @@
             android:text="DK"
             android:textColor="@color/secondaryTextColor" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHyphen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBookName"
+            android:layout_alignTop="@id/tvAuthor"
+            android:layout_toEndOf="@id/tvAuthor"
+            android:text="@string/lbl_hyphen"
+            android:textColor="@color/secondaryTextColor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTypeOfBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBookName"
+            android:layout_alignTop="@id/tvAuthor"
+            android:layout_toEndOf="@id/tvHyphen"
+            android:text="Ebooks"
+            android:textColor="@color/secondaryTextColor" />
+
+
         <View
             android:id="@+id/straightLine"
             android:layout_width="match_parent"

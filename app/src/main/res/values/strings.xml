@@ -9,4 +9,5 @@
     <string name="lbl_delete_from_your_library">Delete from your library</string>
     <string name="lbl_add_to_shelves">Add to shelves...</string>
     <string name="lbl_mark_as_read">Mark as read</string>
+    <string name="lbl_hyphen">&#160;-&#160;</string>
 </resources>

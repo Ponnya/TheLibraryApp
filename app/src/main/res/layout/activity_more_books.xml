@@ -44,5 +44,8 @@
 
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
-
+    <include
+        android:id="@+id/viewOptionMenuMoreBooks"
+        layout="@layout/view_item_book_option_menu"
+        android:visibility="gone" />
 </RelativeLayout>
