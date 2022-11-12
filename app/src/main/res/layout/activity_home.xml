@@ -86,4 +86,9 @@
         app:itemTextColor="@color/bottom_nav_item_color"
         app:menu="@menu/bottom_navigation_menu" />
 
+    <include
+        android:id="@+id/viewOptionMenu"
+        layout="@layout/view_item_book_option_menu"
+        android:visibility="gone" />
+
 </RelativeLayout>

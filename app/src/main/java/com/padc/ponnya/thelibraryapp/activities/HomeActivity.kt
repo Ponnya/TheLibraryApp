@@ -1,35 +1,47 @@
 package com.padc.ponnya.thelibraryapp.activities
 
+
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.adapters.BooksByCategoryAdapter
 import com.padc.ponnya.thelibraryapp.adapters.ReadingBooksAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ActivityHomeBinding
+import com.padc.ponnya.thelibraryapp.mvp.presenters.HomePresenter
+import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.HomePresenterImpl
+import com.padc.ponnya.thelibraryapp.mvp.views.HomeView
 import kotlin.math.abs
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity(), HomeView {
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var mBooksByCategoryAdapter: BooksByCategoryAdapter
 
+    private lateinit var mBooksByCategoryAdapter: BooksByCategoryAdapter
+    private lateinit var mHomePresenter: HomePresenter
     private lateinit var mReadingBooksAdapter: ReadingBooksAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpPresenter()
 
         setUpVisaCardViewPager2()
         setUpRecyclerView()
-        binding.layoutSearchBar.ivProfile.setOnClickListener {
-            startActivity(MoreBooksActivity.newIntent(this))
-        }
+        setUpListener()
+    }
+
+    private fun setUpPresenter() {
+        mHomePresenter = ViewModelProvider(this)[HomePresenterImpl::class.java]
+        mHomePresenter.initView(this)
     }
 
     private fun setUpVisaCardViewPager2() {
-        mReadingBooksAdapter = ReadingBooksAdapter()
+        mReadingBooksAdapter = ReadingBooksAdapter(mHomePresenter)
         binding.viewPagerReadingBook.adapter = mReadingBooksAdapter
         binding.viewPagerReadingBook.clipToPadding = false
         binding.viewPagerReadingBook.clipChildren = false
@@ -49,10 +61,30 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        mBooksByCategoryAdapter = BooksByCategoryAdapter()
+        mBooksByCategoryAdapter = BooksByCategoryAdapter(mHomePresenter, mHomePresenter)
         binding.rvBooksByCategory.adapter = mBooksByCategoryAdapter
         binding.rvBooksByCategory.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+    }
+
+    private fun setUpListener() {
+        //Close Option Menu
+        binding.viewOptionMenu.view.setOnClickListener { mHomePresenter.onTapOptionMenuScreen() }
+    }
+
+    override fun openMoreBookScreen() {
+        startActivity(MoreBooksActivity.newIntent(this))
+    }
+
+    override fun openBookOptionMenu() {
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorTransparentOverlay)
+        binding.viewOptionMenu.root.visibility = View.VISIBLE
+
+    }
+
+    override fun closeBookOptionMenu() {
+        window.statusBarColor = ContextCompat.getColor(this, android.R.color.transparent)
+        binding.viewOptionMenu.root.visibility = View.INVISIBLE
     }
 
 }

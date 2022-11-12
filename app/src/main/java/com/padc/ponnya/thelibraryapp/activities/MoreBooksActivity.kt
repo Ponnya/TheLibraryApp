@@ -21,6 +21,8 @@ class MoreBooksActivity : AppCompatActivity() {
         binding = ActivityMoreBooksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         setUpRecyclerView()
     }
 

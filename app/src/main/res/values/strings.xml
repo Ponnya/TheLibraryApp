@@ -5,4 +5,8 @@
     <string name="lbl_ebooks">Ebooks</string>
     <string name="lbl_home">Home</string>
     <string name="lbl_library">Library</string>
+    <string name="lbl_download">Download</string>
+    <string name="lbl_delete_from_your_library">Delete from your library</string>
+    <string name="lbl_add_to_shelves">Add to shelves...</string>
+    <string name="lbl_mark_as_read">Mark as read</string>
 </resources>

@@ -17,7 +17,7 @@
             android:src="@drawable/book_cover" />
 
         <ImageView
-            android:id="@+id/btnSetting"
+            android:id="@+id/btnOptionMenu"
             android:layout_width="@dimen/width_height_headphone"
             android:layout_height="@dimen/width_height_headphone"
             android:layout_alignParentEnd="true"

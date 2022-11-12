@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTransparentOverlay"
+    android:backgroundTint="@color/colorTransparentOverlay"
+    android:backgroundTintMode="src_atop"
+    android:elevation="@dimen/margin_large">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rlOptionMenu" />
+
+    <RelativeLayout
+        android:id="@+id/rlOptionMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/width_option_menu_book_cover"
+            android:layout_height="@dimen/height_option_menu_book_cover"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            app:cardCornerRadius="@dimen/margin_small">
+
+            <ImageView
+                android:id="@+id/ivCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/book_cover" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_toEndOf="@id/cardView"
+            android:text="English for Everyone"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBookName"
+            android:layout_alignStart="@id/tvBookName"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="DK"
+            android:textColor="@color/secondaryTextColor" />
+
+        <View
+            android:id="@+id/straightLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_line"
+            android:layout_below="@id/cardView"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@color/straightLineColor" />
+
+        <LinearLayout
+            android:id="@+id/llDownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/straightLine"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivDownloadIcon"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_download_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDownload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_download"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llDownload"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_delete_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_delete_from_your_library"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llDelete"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_add_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_add_to_shelves"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMarkAsRead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llAdd"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivMarkAsRead"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_check_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMarkAsRead"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_mark_as_read"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
