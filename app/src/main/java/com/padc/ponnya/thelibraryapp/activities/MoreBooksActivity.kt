@@ -3,13 +3,11 @@ package com.padc.ponnya.thelibraryapp.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.adapters.MoreEbooksAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ActivityMoreBooksBinding
+import com.padc.ponnya.thelibraryapp.fragments.OptionMenuFragment
 import com.padc.ponnya.thelibraryapp.mvp.presenters.MoreBooksPresenter
 import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.MoreBooksPresenterImpl
 import com.padc.ponnya.thelibraryapp.mvp.views.MoreBooksView
@@ -32,7 +30,7 @@ class MoreBooksActivity : BaseActivity(), MoreBooksView {
         setUpPresenter()
 
         setUpRecyclerView()
-        setUpListener()
+
     }
 
     private fun setUpPresenter() {
@@ -48,19 +46,9 @@ class MoreBooksActivity : BaseActivity(), MoreBooksView {
         binding.rvMoreBooks.adapter = mMoreEbooksAdapter
     }
 
-    private fun setUpListener() {
-        //Close Option Menu
-        binding.viewOptionMenuMoreBooks.view.setOnClickListener { mPresenter.onTapOptionMenuScreen() }
-    }
-
     override fun openBookOptionMenu() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.colorTransparentOverlay)
-        binding.viewOptionMenuMoreBooks.root.visibility = View.VISIBLE
-
+        OptionMenuFragment().show(supportFragmentManager, null)
     }
 
-    override fun closeBookOptionMenu() {
-        window.statusBarColor = ContextCompat.getColor(this, android.R.color.transparent)
-        binding.viewOptionMenuMoreBooks.root.visibility = View.INVISIBLE
-    }
+
 }

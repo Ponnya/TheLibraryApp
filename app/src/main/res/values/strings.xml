@@ -10,4 +10,7 @@
     <string name="lbl_add_to_shelves">Add to shelves...</string>
     <string name="lbl_mark_as_read">Mark as read</string>
     <string name="lbl_hyphen">&#160;-&#160;</string>
+    <string name="lbl_add_to_wishlist">Add to wishlist</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

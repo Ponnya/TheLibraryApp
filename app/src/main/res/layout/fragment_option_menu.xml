@@ -3,10 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTransparentOverlay"
-    android:backgroundTint="@color/colorTransparentOverlay"
-    android:backgroundTintMode="src_atop"
-    android:elevation="@dimen/margin_large">
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
     <View
         android:id="@+id/view"
@@ -88,7 +85,7 @@
             android:background="@color/straightLineColor" />
 
         <LinearLayout
-            android:id="@+id/llDownload"
+            android:id="@+id/llFreeSample"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/straightLine"
@@ -96,101 +93,76 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/ivDownloadIcon"
+                android:id="@+id/ivFreeSample"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/margin_large"
                 android:layout_weight="0.2"
                 android:src="@drawable/ic_baseline_download_black_24dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDownload"
+                android:id="@+id/tvFreeSample"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
-                android:text="@string/lbl_download"
+                android:text="Free Sample"
                 android:textColor="@color/primaryTextColor" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llDelete"
+            android:id="@+id/llWishlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/llDownload"
+            android:layout_below="@id/llFreeSample"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/ivDelete"
+                android:id="@+id/ivWishlist"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/margin_large"
                 android:layout_weight="0.2"
-                android:src="@drawable/ic_baseline_delete_black_24dp" />
+                android:src="@drawable/ic_baseline_bookmark_add_black_24dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDelete"
+                android:id="@+id/tvWishList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
-                android:text="@string/lbl_delete_from_your_library"
+                android:text="@string/lbl_add_to_wishlist"
                 android:textColor="@color/primaryTextColor" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llAdd"
+            android:id="@+id/llAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/llDelete"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/ivAdd"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin_large"
-                android:layout_weight="0.2"
-                android:src="@drawable/ic_baseline_add_black_24dp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvAdd"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.8"
-                android:text="@string/lbl_add_to_shelves"
-                android:textColor="@color/primaryTextColor" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llMarkAsRead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/llAdd"
+            android:layout_below="@id/llWishlist"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_marginBottom="@dimen/margin_medium_2"
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/ivMarkAsRead"
+                android:id="@+id/ivAbout"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/margin_large"
                 android:layout_weight="0.2"
-                android:src="@drawable/ic_baseline_check_black_24dp" />
+                android:src="@drawable/ic_baseline_bookmark_border_black_24dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvMarkAsRead"
+                android:id="@+id/tvAbout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
-                android:text="@string/lbl_mark_as_read"
+                android:text="About this book"
                 android:textColor="@color/primaryTextColor" />
 
         </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>
