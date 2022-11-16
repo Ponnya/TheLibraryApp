@@ -11,6 +11,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -23,14 +24,21 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <RelativeLayout
+            android:id="@+id/relativeLayoutHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainer"
+            <ScrollView
+                android:id="@+id/scrollViewHome"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fragmentContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </ScrollView>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNavigationHome"
