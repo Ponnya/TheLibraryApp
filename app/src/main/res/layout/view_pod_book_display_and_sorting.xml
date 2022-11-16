@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnClearGenre"
+                android:layout_width="@dimen/margin_xlarge"
+                android:layout_height="@dimen/margin_xlarge"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:background="@drawable/background_chip"
+                android:padding="@dimen/margin_small"
+                android:src="@drawable/ic_baseline_clear_gray_24dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBookGenre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_toEndOf="@id/btnClearGenre"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/margin_medium"
+                android:paddingEnd="@dimen/margin_medium_2" />
+        </RelativeLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontalScrollView"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_menu_gray_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLblSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnSortBy"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_toEndOf="@id/btnSortBy"
+        android:text="@string/lbl_sort_by"
+        android:textColor="@color/secondaryTextColor" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnSortBy"
+        android:layout_toEndOf="@id/tvLblSortBy"
+        android:text="Recent"
+        android:textColor="@color/secondaryTextColor" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnViewAs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontalScrollView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_view_list_gray_24dp" />
+
+    <!--List-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDisplayBookList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnSortBy"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/padding_recycler_view"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+    <!--Large Grid-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDisplayBookLargeGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnSortBy"
+        android:clipToPadding="false"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/padding_recycler_view"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+    <!--Small Grid-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDisplayBookSmallGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnSortBy"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="@dimen/padding_recycler_view"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+
+</RelativeLayout>

@@ -52,5 +52,7 @@
     <dimen name="height_more_ebook">225dp</dimen>
     <dimen name="width_option_menu_book_cover">70dp</dimen>
     <dimen name="height_option_menu_book_cover">100dp</dimen>
+    <dimen name="height_small_ebook">150dp</dimen>
+    <dimen name="padding_recycler_view">76dp</dimen>
 
 </resources>

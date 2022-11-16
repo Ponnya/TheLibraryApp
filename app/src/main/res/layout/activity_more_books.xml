@@ -41,7 +41,6 @@
         android:clipToPadding="false"
         android:paddingEnd="@dimen/margin_medium_2"
         android:paddingBottom="@dimen/margin_medium_2"
-
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
 </RelativeLayout>

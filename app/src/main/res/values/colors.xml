@@ -26,6 +26,7 @@
     <color name="tabIndicatorColor">#3C7EC7</color>
     <color name="straightLineColor">#F1F2F3</color>
     <color name="colorTransparentOverlay">#40000000</color>
+    <color name="selectedChipColor">#22507E</color>
 
 
 </resources>

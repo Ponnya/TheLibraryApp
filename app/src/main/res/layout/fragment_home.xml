@@ -60,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/tabLayoutGenre"
                 android:clipToPadding="false"
-                android:paddingBottom="106dp" />
+                android:paddingBottom="@dimen/padding_recycler_view" />
 
 
         </RelativeLayout>

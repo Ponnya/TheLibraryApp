@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ViewAsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleViewAs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:text="@string/title_view_as"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/straightLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_line"
+            android:layout_below="@id/tvTitleViewAs"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:background="@color/straightLineColor" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupViewAs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/straightLine"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:text="@string/lbl_list"
+                android:textColor="@color/primaryTextColor" />
+
+            <RadioButton
+                android:id="@+id/rbLargeGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:text="@string/lbl_large_grid"
+                android:textColor="@color/primaryTextColor" />
+
+            <RadioButton
+                android:id="@+id/rbSmallGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:text="@string/lbl_small_grid"
+                android:textColor="@color/primaryTextColor" />
+
+
+        </RadioGroup>
+    </RelativeLayout>
+
+</RelativeLayout>
