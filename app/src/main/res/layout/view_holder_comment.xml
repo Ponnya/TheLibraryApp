@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.padc.ponnya.thelibraryapp.views.components.CircleImageView
+        android:id="@+id/ivCommentProfile"
+        android:layout_width="@dimen/width_height_comment_profile"
+        android:layout_height="@dimen/width_height_comment_profile"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/profile"
+        app:firstArcColor="@color/white"
+        app:fourthArcColor="@color/white"
+        app:secondArcColor="@color/white"
+        app:thirdArcColor="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNameComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/ivCommentProfile"
+        android:text="Steve Gomez"
+        android:textColor="@color/primaryTextColor"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/ratingBarComment"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNameComment"
+        android:layout_alignStart="@id/tvNameComment"
+        android:progressTint="@color/tabIndicatorColor"
+
+        android:rating="4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCommentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNameComment"
+        android:layout_alignTop="@id/ratingBarComment"
+        android:layout_alignBottom="@id/ratingBarComment"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="-2dp"
+        android:layout_toEndOf="@id/ratingBarComment"
+        android:gravity="center"
+        android:text="5/21/14"
+        android:textColor="@color/secondaryTextColor" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivCommentProfile"
+        android:layout_alignStart="@id/tvNameComment"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:text="Had to buy the book for class, really convenient. excellent book btw."
+        android:textColor="@color/secondaryTextColor" />
+
+
+</RelativeLayout>

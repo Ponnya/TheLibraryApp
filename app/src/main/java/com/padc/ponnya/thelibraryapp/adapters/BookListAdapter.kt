@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.padc.ponnya.thelibraryapp.databinding.ViewHolderBookListBinding
-import com.padc.ponnya.thelibraryapp.delegates.OptionMenuDelegate
+import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
 import com.padc.ponnya.thelibraryapp.views.viewholders.BookListViewHolder
 
-class BookListAdapter(private val delegate: OptionMenuDelegate) :
+class BookListAdapter(private val delegate: OptionMenuAndDetailDelegate) :
     RecyclerView.Adapter<BookListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookListViewHolder {
         val view =

@@ -10,7 +10,7 @@
         android:layout_height="@dimen/width_height_headphone"
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_marginTop="@dimen/margin_medium_2"
-        android:src="@drawable/ic_baseline_navigate_before_light_blue_24dp" />
+        android:src="@drawable/ic_baseline_navigate_before_black_24dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCategory"

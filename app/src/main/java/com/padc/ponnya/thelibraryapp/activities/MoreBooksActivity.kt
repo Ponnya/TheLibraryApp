@@ -50,5 +50,9 @@ class MoreBooksActivity : BaseActivity(), MoreBooksView {
         OptionMenuFragment().show(supportFragmentManager, null)
     }
 
+    override fun navigateToDetailScreen() {
+        startActivity(DetailActivity.newIntent(this))
+    }
+
 
 }

@@ -5,10 +5,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.padc.ponnya.thelibraryapp.adapters.EbooksAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ViewHolderBooksByCategoryBinding
 import com.padc.ponnya.thelibraryapp.delegates.BooksByCategoryDelegate
-import com.padc.ponnya.thelibraryapp.delegates.OptionMenuDelegate
+import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
 
 class BooksByCategoryViewHolder(
-    private val mOptionMenuDelegate: OptionMenuDelegate,
+    private val mOptionMenuDelegate: OptionMenuAndDetailDelegate,
     private val delegate: BooksByCategoryDelegate,
     private val binding: ViewHolderBooksByCategoryBinding
 ) :

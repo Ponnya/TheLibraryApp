@@ -1,5 +1,6 @@
 package com.padc.ponnya.thelibraryapp.delegates
 
-interface CarouselOptionMenuDelegate {
+interface CarouselOptionMenuDetailDelegate {
     fun onTapCarouselOptionMenu()
+    fun onTapCarouselImageView()
 }

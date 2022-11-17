@@ -1,5 +1,6 @@
 package com.padc.ponnya.thelibraryapp.delegates
 
-interface OptionMenuDelegate {
+interface OptionMenuAndDetailDelegate {
     fun onTapOptionMenu()
+    fun onTapImage()
 }

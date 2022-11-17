@@ -54,5 +54,7 @@
     <dimen name="height_option_menu_book_cover">100dp</dimen>
     <dimen name="height_small_ebook">150dp</dimen>
     <dimen name="padding_recycler_view">76dp</dimen>
+    <dimen name="width_height_profile">45dp</dimen>
+    <dimen name="width_height_comment_profile">50dp</dimen>
 
 </resources>

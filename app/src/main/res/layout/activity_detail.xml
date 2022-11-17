@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_medium_2"
+        app:elevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/width_height_headphone"
+                android:layout_height="@dimen/width_height_headphone"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/ic_baseline_navigate_before_black_24dp" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:src="@drawable/ic_baseline_publish_black_24dp" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBookCoverDetail"
+                    android:layout_width="@dimen/width_ebooks"
+                    android:layout_height="@dimen/height_book_cover"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/book_cover" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBookNameDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_toEndOf="@id/cardViewDetail"
+                android:text="English for everyone"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBookAuthorDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookNameDetail"
+                android:layout_alignStart="@id/tvBookNameDetail"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="DK"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEbookAudiobookDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookAuthorDetail"
+                android:layout_alignStart="@id/tvBookNameDetail"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="Ebook"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHyphen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookAuthorDetail"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@id/tvEbookAudiobookDetail"
+                android:text="@string/lbl_hyphen"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNumberOfPages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookAuthorDetail"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@id/tvHyphen"
+                android:text="187"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookAuthorDetail"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@id/tvNumberOfPages"
+                android:text="@string/lbl_pages"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <View
+                android:id="@+id/straightLine1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_straight_line"
+                android:layout_below="@id/cardViewDetail"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:background="@color/straightLineColor" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/straightLine1"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFreeSample"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:background="@drawable/background_rounded_corner_button"
+                    android:text="@string/lbl_free_sample"
+                    android:textAllCaps="false"
+                    android:textColor="@color/tabIndicatorColor" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddToWishlist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/background_rounded_corner_button"
+                    android:backgroundTint="@color/tabIndicatorColor"
+                    android:drawableStart="@drawable/ic_baseline_bookmark_add_black_24dp"
+                    android:drawableTint="@color/white"
+                    android:paddingStart="@dimen/margin_medium_2"
+                    android:text="Add to wishlist"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayoutDetail"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/ic_baseline_error_outline_gray_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayoutDetail"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_toEndOf="@id/ivInfo"
+                android:text="@string/lbl_informatio_book_detail"
+                android:textColor="@color/secondaryTextColor" />
+
+            <View
+                android:id="@+id/straightLine2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_straight_line"
+                android:layout_below="@id/tvInformation"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:background="@color/straightLineColor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabelAboutThis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/straightLine2"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/lbl_about_this_ebook"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnDetailAboutBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/straightLine2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:src="@drawable/ic_baseline_navigate_next_light_blue_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAboutThisBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLabelAboutThis"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:text="Like all the men in his family, Tim Lake possesses the power to travel in time. With the advice of his father, he uses his special ability to pursue his romantic interest, Mary."
+                android:textColor="@color/secondaryTextColor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabelRatingAndReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvAboutThisBook"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/lbl_ratings_and_reviews"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnDetailRatingAndReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvAboutThisBook"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:src="@drawable/ic_baseline_navigate_next_light_blue_24dp" />
+
+            <include
+                android:id="@+id/viewItemRating"
+                layout="@layout/view_item_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLabelRatingAndReviews" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewItemRating"
+                android:clipToPadding="false" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLabelPublish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rvComments"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/lbl_published"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLabelPublish"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                android:text="December 1, 2007 .Open Road +Grove/Atlantic"
+                android:textColor="@color/secondaryTextColor" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

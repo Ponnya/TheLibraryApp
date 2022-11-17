@@ -1,60 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBar"
+        <include
+            android:id="@+id/layoutSearchBar"
+            layout="@layout/view_item_search_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp">
+            android:layout_height="wrap_content" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <include
-                android:id="@+id/layoutSearchBar"
-                layout="@layout/view_item_search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayoutHome"
+        <ScrollView
+            android:id="@+id/scrollViewHome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            android:layout_height="match_parent">
 
-            <ScrollView
-                android:id="@+id/scrollViewHome"
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentContainer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" />
+        </ScrollView>
 
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fragmentContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </ScrollView>
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavigationHome"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_alignParentBottom="true"
-                android:elevation="@dimen/margin_small"
-                app:itemIconTint="@color/bottom_nav_item_color"
-                app:itemTextAppearanceActive="@style/MyBottomNavigationView"
-                app:itemTextAppearanceInactive="@style/MyBottomNavigationView"
-                app:itemTextColor="@color/bottom_nav_item_color"
-                app:menu="@menu/bottom_navigation_menu" />
-        </RelativeLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationHome"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:elevation="@dimen/margin_small"
+            app:itemIconTint="@color/bottom_nav_item_color"
+            app:itemTextAppearanceActive="@style/MyBottomNavigationView"
+            app:itemTextAppearanceInactive="@style/MyBottomNavigationView"
+            app:itemTextColor="@color/bottom_nav_item_color"
+            app:menu="@menu/bottom_navigation_menu" />
+    </RelativeLayout>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

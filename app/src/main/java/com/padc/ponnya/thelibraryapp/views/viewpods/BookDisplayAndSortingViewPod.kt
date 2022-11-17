@@ -12,7 +12,7 @@ import com.padc.ponnya.thelibraryapp.adapters.MoreEbooksAdapter
 import com.padc.ponnya.thelibraryapp.adapters.SmallEbookAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ViewPodBookDisplayAndSortingBinding
 import com.padc.ponnya.thelibraryapp.delegates.ChipDelegate
-import com.padc.ponnya.thelibraryapp.delegates.OptionMenuDelegate
+import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
 import com.padc.ponnya.thelibraryapp.views.viewholders.DummyClass
 
 class BookDisplayAndSortingViewPod @JvmOverloads constructor(
@@ -63,7 +63,10 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
         mDelegate = delegate
     }
 
-    fun setUpRecyclerView(chipDelegate: ChipDelegate, optionMenuDelegate: OptionMenuDelegate) {
+    fun setUpRecyclerView(
+        chipDelegate: ChipDelegate,
+        optionMenuDelegate: OptionMenuAndDetailDelegate
+    ) {
         //ChipRecyclerView
         mChipDelegate = chipDelegate
         chipAdapter = ChipAdapter(mChipDelegate)

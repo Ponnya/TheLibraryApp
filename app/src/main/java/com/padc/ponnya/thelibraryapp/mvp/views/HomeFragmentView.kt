@@ -4,4 +4,5 @@ interface HomeFragmentView {
     fun openMoreBookScreen()
     fun openBookCarouselOptionMenu()
     fun openBookOptionMenu()
+    fun navigateToDetail()
 }

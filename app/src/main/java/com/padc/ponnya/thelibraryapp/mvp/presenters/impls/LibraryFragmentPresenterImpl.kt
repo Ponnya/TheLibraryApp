@@ -36,6 +36,13 @@ class LibraryFragmentPresenterImpl : ViewModel(), LibraryFragmentPresenter {
     }
 
     /**
+     * MoreEbooksAdapter.OptionMenuDelegate callback method
+     */
+    override fun onTapImage() {
+        mView.navigateToDetailScreen()
+    }
+
+    /**
      * ViewAsDelegate callback method
      */
     override fun showListView() {

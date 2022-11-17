@@ -1,11 +1,11 @@
 package com.padc.ponnya.thelibraryapp.mvp.presenters
 
 import com.padc.ponnya.thelibraryapp.delegates.BooksByCategoryDelegate
-import com.padc.ponnya.thelibraryapp.delegates.CarouselOptionMenuDelegate
-import com.padc.ponnya.thelibraryapp.delegates.OptionMenuDelegate
+import com.padc.ponnya.thelibraryapp.delegates.CarouselOptionMenuDetailDelegate
+import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
 import com.padc.ponnya.thelibraryapp.mvp.views.HomeFragmentView
 
-interface HomeFragmentPresenter : BooksByCategoryDelegate, OptionMenuDelegate,
-    CarouselOptionMenuDelegate {
+interface HomeFragmentPresenter : BooksByCategoryDelegate, OptionMenuAndDetailDelegate,
+    CarouselOptionMenuDetailDelegate {
     fun initView(view: HomeFragmentView)
 }

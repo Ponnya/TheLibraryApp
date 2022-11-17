@@ -8,4 +8,5 @@ interface LibraryFragmentView {
     fun changeListView()
     fun changeLargeGridView()
     fun changeSmallGridView()
+    fun navigateToDetailScreen()
 }

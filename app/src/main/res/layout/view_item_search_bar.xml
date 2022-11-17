@@ -21,8 +21,8 @@
 
     <com.padc.ponnya.thelibraryapp.views.components.CircleImageView
         android:id="@+id/ivProfile"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/width_height_profile"
+        android:layout_height="@dimen/width_height_profile"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/margin_medium_3"

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.padc.ponnya.thelibraryapp.activities.DetailActivity
 import com.padc.ponnya.thelibraryapp.activities.MoreBooksActivity
 import com.padc.ponnya.thelibraryapp.adapters.BooksByCategoryAdapter
 import com.padc.ponnya.thelibraryapp.adapters.ReadingBooksAdapter
@@ -86,6 +87,10 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
     override fun openBookOptionMenu() {
         OptionMenuFragment().show(childFragmentManager, null)
+    }
+
+    override fun navigateToDetail() {
+        startActivity(context?.let { DetailActivity.newIntent(it) })
     }
 
 

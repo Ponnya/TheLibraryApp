@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.padc.ponnya.thelibraryapp.activities.DetailActivity
 import com.padc.ponnya.thelibraryapp.databinding.FragmentLibraryBinding
 import com.padc.ponnya.thelibraryapp.mvp.presenters.LibraryFragmentPresenter
 import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.LibraryFragmentPresenterImpl
@@ -76,6 +77,10 @@ class LibraryFragment : Fragment(), LibraryFragmentView {
     override fun changeSmallGridView() {
         binding.viewPodDisplayBook.showSmallGridView()
         mCheckedRadioButton = SMALL_GIRD
+    }
+
+    override fun navigateToDetailScreen() {
+        startActivity(context?.let { DetailActivity.newIntent(it) })
     }
 
 

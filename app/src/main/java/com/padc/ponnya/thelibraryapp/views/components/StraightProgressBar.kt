@@ -35,6 +35,7 @@ class StraightProgressBar @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         paint.strokeWidth = height.toFloat()
+
         drawInnerLine(canvas)
         drawOuterLine(canvas)
         super.onDraw(canvas)

@@ -25,4 +25,16 @@
     <string name="lbl_large_grid">Large grid</string>
     <string name="lbl_small_grid">Small grid</string>
     <string name="lbl_sample">&#160;- Sample</string>
+    <string name="lbl_pages">&#160;pages</string>
+    <string name="lbl_free_sample">Free sample</string>
+    <string name="lbl_informatio_book_detail">Books that you buy on the Google Play website can be read in this app.</string>
+    <string name="lbl_about_this_ebook">About this ebook</string>
+    <string name="lbl_about_this_audiobook">About this audiobook</string>
+    <string name="lbl_ratings_and_reviews">Ratings and reviews</string>
+    <string name="number_five">5</string>
+    <string name="number_four">4</string>
+    <string name="number_two">2</string>
+    <string name="number_three">3</string>
+    <string name="number_one">1</string>
+    <string name="lbl_published">Published</string>
 </resources>

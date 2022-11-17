@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:text="3.9"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/text_big_2x" />
+
+    <!--5-->
+    <LinearLayout
+        android:id="@+id/llFiveStarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/tvBookRating"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/number_five"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="bold" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/straightProgressBar5"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            app:backgroundLineColor="@color/straightLineColor"
+            app:progressBarColor="@color/tabIndicatorColor"
+            app:progressNumber="70" />
+    </LinearLayout>
+
+    <!--4-->
+    <LinearLayout
+        android:id="@+id/llFourStarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llFiveStarRating"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/tvBookRating"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/number_four"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="bold" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/straightProgressBar4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            app:backgroundLineColor="@color/straightLineColor"
+            app:progressBarColor="@color/tabIndicatorColor"
+            app:progressNumber="50" />
+    </LinearLayout>
+
+    <!--3-->
+    <LinearLayout
+        android:id="@+id/llThreeStarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llFourStarRating"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/tvBookRating"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/number_three"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="bold" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/straightProgressBar3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            app:backgroundLineColor="@color/straightLineColor"
+            app:progressBarColor="@color/tabIndicatorColor"
+            app:progressNumber="30" />
+    </LinearLayout>
+
+    <!--2-->
+    <LinearLayout
+        android:id="@+id/llTwoStarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llThreeStarRating"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/tvBookRating"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/number_two"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="bold" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/straightProgressBar2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            app:backgroundLineColor="@color/straightLineColor"
+            app:progressBarColor="@color/tabIndicatorColor"
+            app:progressNumber="50" />
+    </LinearLayout>
+
+    <!--2-->
+    <LinearLayout
+        android:id="@+id/llOneStarRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llTwoStarRating"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/tvBookRating"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="@string/number_one"
+            android:textColor="@color/primaryTextColor"
+            android:textStyle="bold" />
+
+        <com.padc.ponnya.thelibraryapp.views.components.StraightProgressBar
+            android:id="@+id/straightProgressBar1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_medium"
+            android:layout_gravity="center"
+            android:layout_weight="0.8"
+            app:backgroundLineColor="@color/straightLineColor"
+            app:progressBarColor="@color/tabIndicatorColor"
+            app:progressNumber="70" />
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/ratingBarDetail"
+        style="?attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBookRating"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:numStars="5"
+        android:progressTint="@color/tabIndicatorColor"
+        android:rating="4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRatingCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingBarDetail"
+        android:layout_alignStart="@id/ratingBarDetail"
+        android:layout_alignEnd="@id/ratingBarDetail"
+        android:gravity="center"
+        android:text="95 ratings"
+        android:textColor="@color/secondaryTextColor" />
+
+</RelativeLayout>

@@ -25,9 +25,23 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
     }
 
     /**
+     * BooksByCategoryAdapter.EbooksAdapter.OptionMenuDelegate callback method
+     */
+    override fun onTapImage() {
+        mView.navigateToDetail()
+    }
+
+    /**
      * ReadingBooksAdapter.CarouselOptionMenuDelegate callback method
      */
     override fun onTapCarouselOptionMenu() {
         mView.openBookCarouselOptionMenu()
+    }
+
+    /**
+     * ReadingBooksAdapter.CarouselOptionMenuDelegate callback method
+     */
+    override fun onTapCarouselImageView() {
+        mView.navigateToDetail()
     }
 }
