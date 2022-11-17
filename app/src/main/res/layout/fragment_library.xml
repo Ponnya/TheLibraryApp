@@ -29,7 +29,6 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-
     <View
         android:id="@+id/straightLine"
         android:layout_width="match_parent"
@@ -37,10 +36,10 @@
         android:layout_below="@id/tabLayoutBooksAndShelves"
         android:background="@color/straightLineColor" />
 
-    <com.padc.ponnya.thelibraryapp.views.viewpods.BookDisplayAndSortingViewPod
-        android:id="@+id/viewPodDisplayBook"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentChildContainer"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@id/straightLine" />
 
 </RelativeLayout>

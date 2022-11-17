@@ -5,23 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
-import com.padc.ponnya.thelibraryapp.activities.DetailActivity
+import com.google.android.material.tabs.TabLayout
+import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.databinding.FragmentLibraryBinding
 import com.padc.ponnya.thelibraryapp.mvp.presenters.LibraryFragmentPresenter
 import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.LibraryFragmentPresenterImpl
 import com.padc.ponnya.thelibraryapp.mvp.views.LibraryFragmentView
-import com.padc.ponnya.thelibraryapp.utils.LARGE_GIRD
-import com.padc.ponnya.thelibraryapp.utils.LIST
-import com.padc.ponnya.thelibraryapp.utils.SMALL_GIRD
 
 class LibraryFragment : Fragment(), LibraryFragmentView {
 
     private lateinit var binding: FragmentLibraryBinding
-    private lateinit var mPresenter: LibraryFragmentPresenter
-    private lateinit var viewAsFragment: ViewAsFragment
 
-    private var mCheckedRadioButton = LIST
+    private lateinit var mPresenter: LibraryFragmentPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,8 +31,11 @@ class LibraryFragment : Fragment(), LibraryFragmentView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setUpPresenter()
-        setUpViewPod()
+
+        setUpFragment()
+        setUpListener()
     }
 
     private fun setUpPresenter() {
@@ -41,46 +43,44 @@ class LibraryFragment : Fragment(), LibraryFragmentView {
         mPresenter.initView(this)
     }
 
-    private fun setUpViewPod() {
-        binding.viewPodDisplayBook.setUpRecyclerView(mPresenter, mPresenter)
-        binding.viewPodDisplayBook.setUpDelegate(mPresenter)
+    private fun setUpFragment() {
+        childFragmentManager.commit {
+            add<YourBooksFragment>(R.id.fragmentChildContainer)
+        }
     }
 
-    override fun tapOnChip(position: Int) {
-        binding.viewPodDisplayBook.clickOnChip(position)
+    private fun setUpListener() {
+        binding.tabLayoutBooksAndShelves.addOnTabSelectedListener(object :
+            TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> mPresenter.onTapYourBooksTab()
+                    1 -> mPresenter.onTapYourShelvesTab()
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+        })
     }
 
-    override fun showSortByFragment() {
-        SortByFragment().show(childFragmentManager, null)
+
+    override fun showYourBooksFragment() {
+        childFragmentManager.commit {
+            replace<YourBooksFragment>(R.id.fragmentChildContainer)
+        }
     }
 
-    override fun showViewAsFragment() {
-        viewAsFragment = ViewAsFragment()
-        viewAsFragment.show(childFragmentManager, null)
-        viewAsFragment.setUpViewAsFragment(mPresenter, mCheckedRadioButton)
-    }
-
-    override fun openBookOptionMenu() {
-        CarouselOptionMenuFragment().show(childFragmentManager, null)
-    }
-
-    override fun changeListView() {
-        binding.viewPodDisplayBook.showListView()
-        mCheckedRadioButton = LIST
-    }
-
-    override fun changeLargeGridView() {
-        binding.viewPodDisplayBook.showLargeGridView()
-        mCheckedRadioButton = LARGE_GIRD
-    }
-
-    override fun changeSmallGridView() {
-        binding.viewPodDisplayBook.showSmallGridView()
-        mCheckedRadioButton = SMALL_GIRD
-    }
-
-    override fun navigateToDetailScreen() {
-        startActivity(context?.let { DetailActivity.newIntent(it) })
+    override fun showYourShelvesFragment() {
+        childFragmentManager.commit {
+            replace<YourShelvesFragment>(R.id.fragmentChildContainer)
+        }
     }
 
 
