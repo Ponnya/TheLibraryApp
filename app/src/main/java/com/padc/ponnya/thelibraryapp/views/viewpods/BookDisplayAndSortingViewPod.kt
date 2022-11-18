@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.padc.ponnya.thelibraryapp.adapters.BookListAdapter
@@ -13,6 +14,9 @@ import com.padc.ponnya.thelibraryapp.adapters.SmallEbookAdapter
 import com.padc.ponnya.thelibraryapp.databinding.ViewPodBookDisplayAndSortingBinding
 import com.padc.ponnya.thelibraryapp.delegates.ChipDelegate
 import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
+import com.padc.ponnya.thelibraryapp.delegates.ViewAsDelegate
+import com.padc.ponnya.thelibraryapp.fragments.SortByFragment
+import com.padc.ponnya.thelibraryapp.fragments.ViewAsFragment
 import com.padc.ponnya.thelibraryapp.views.viewholders.DummyClass
 
 class BookDisplayAndSortingViewPod @JvmOverloads constructor(
@@ -29,6 +33,7 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
     private lateinit var bookListAdapter: BookListAdapter
     private lateinit var smallEbookAdapter: SmallEbookAdapter
     private lateinit var moreEbooksAdapter: MoreEbooksAdapter
+    private lateinit var viewAsFragment: ViewAsFragment
 
     private lateinit var mDelegate: Delegate
 
@@ -124,6 +129,19 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
         binding.rvDisplayBookSmallGrid.visibility = VISIBLE
     }
 
+    fun showSortByFragment(fragmentManager: FragmentManager) {
+        SortByFragment().show(fragmentManager, null)
+    }
+
+    fun showViewAsFragment(
+        fragmentManager: FragmentManager,
+        delegate: ViewAsDelegate,
+        checkedRadioButton: String
+    ) {
+        viewAsFragment = ViewAsFragment()
+        viewAsFragment.show(fragmentManager, null)
+        viewAsFragment.setUpViewAsFragment(delegate, checkedRadioButton)
+    }
 
     interface Delegate {
         fun onTapBtnSortBy()

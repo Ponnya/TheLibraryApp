@@ -48,4 +48,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="lbl_create_shelf">Create shelf</string>
     <string name="lbl_shelf_name">Shelf name</string>
+    <string name="lbl_about_this_book">About this book</string>
+    <string name="lbl_rename_shelf">Rename shelf</string>
+    <string name="lbl_delete_shelf">Delete Shelf</string>
 </resources>

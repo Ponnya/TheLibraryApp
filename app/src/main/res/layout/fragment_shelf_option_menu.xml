@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ShelfOptionMenuFragment">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rlOptionMenu" />
+
+    <RelativeLayout
+        android:id="@+id/rlOptionMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvShelfOptionMenuLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:text="10 Interaction Design Books to Read"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/straightLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_line"
+            android:layout_below="@id/tvShelfOptionMenuLabel"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:background="@color/straightLineColor" />
+
+        <LinearLayout
+            android:id="@+id/llRename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/straightLine"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivRename"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_edit_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRename"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_rename_shelf"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDeleteShelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llRename"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/ivDeleteShelf"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_large"
+                android:layout_weight="0.2"
+                android:src="@drawable/ic_baseline_delete_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDeleteShelf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.8"
+                android:text="@string/lbl_delete_shelf"
+                android:textColor="@color/primaryTextColor" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

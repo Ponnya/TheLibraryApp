@@ -21,7 +21,7 @@ class YourBooksFragment : Fragment(), YourBooksFragmentView {
 
     private lateinit var binding: FragmentYourBooksBinding
     private lateinit var mPresenter: YourBooksFragmentPresenter
-    private lateinit var viewAsFragment: ViewAsFragment
+
 
     private var mCheckedRadioButton = LIST
 
@@ -54,13 +54,15 @@ class YourBooksFragment : Fragment(), YourBooksFragmentView {
     }
 
     override fun showSortByFragment() {
-        SortByFragment().show(childFragmentManager, null)
+        binding.viewPodDisplayBook.showSortByFragment(childFragmentManager)
     }
 
     override fun showViewAsFragment() {
-        viewAsFragment = ViewAsFragment()
-        viewAsFragment.show(childFragmentManager, null)
-        viewAsFragment.setUpViewAsFragment(mPresenter, mCheckedRadioButton)
+        binding.viewPodDisplayBook.showViewAsFragment(
+            childFragmentManager,
+            mPresenter,
+            mCheckedRadioButton
+        )
     }
 
     override fun openBookOptionMenu() {

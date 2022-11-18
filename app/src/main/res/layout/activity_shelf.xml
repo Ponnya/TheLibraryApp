@@ -4,36 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CreateShelfActivity">
+    tools:context=".activities.ShelfActivity">
+
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnBackShelf"
+        android:layout_width="@dimen/width_height_headphone"
+        android:layout_height="@dimen/width_height_headphone"
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_marginTop="@dimen/margin_medium_2"
         android:src="@drawable/ic_baseline_navigate_before_black_24dp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnOptionShelf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/margin_medium_2"
-        android:text="@string/lbl_create_shelf"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_more_horiz_black_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvShelfTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnBackShelf"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:text="10 Interaction Design Books to Read"
         android:textColor="@color/primaryTextColor"
-        android:textStyle="bold"
-        android:textSize="@dimen/text_regular_2x" />
+        android:textSize="@dimen/text_regular_3x"
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnBack"
+        android:layout_below="@id/tvShelfTitle"
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_marginTop="@dimen/margin_xxlarge"
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:baselineAlignedChildIndex="@integer/material_motion_duration_long_1"
         android:hint="@string/lbl_shelf_name"
+        android:visibility="gone"
         app:boxBackgroundColor="@null"
         app:boxStrokeColor="@color/custom_line_color"
         app:counterEnabled="true"
@@ -52,12 +67,28 @@
             android:textSize="@dimen/text_regular_3x" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInputLayout"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:text="3 books"
+        android:textColor="@color/secondaryTextColor" />
 
     <View
+        android:id="@+id/straightLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_straight_line"
-        android:layout_below="@id/textInputLayout"
+        android:layout_below="@id/tvBookCount"
+        android:layout_marginTop="@dimen/margin_medium_2"
         android:background="@color/straightLineColor" />
 
+    <com.padc.ponnya.thelibraryapp.views.viewpods.BookDisplayAndSortingViewPod
+        android:id="@+id/viewPodDisplayBook"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/straightLine" />
 
 </RelativeLayout>
+

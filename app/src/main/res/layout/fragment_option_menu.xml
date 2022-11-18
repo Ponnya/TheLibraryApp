@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
-                android:text="Free Sample"
+                android:text="@string/lbl_free_sample"
                 android:textColor="@color/primaryTextColor" />
 
         </LinearLayout>
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.8"
-                android:text="About this book"
+                android:text="@string/lbl_about_this_book"
                 android:textColor="@color/primaryTextColor" />
 
         </LinearLayout>

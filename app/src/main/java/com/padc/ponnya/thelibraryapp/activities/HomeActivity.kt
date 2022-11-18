@@ -53,6 +53,7 @@ class HomeActivity : BaseActivity(), HomeView {
                     true
                 }
             }
+
         }
 
 
