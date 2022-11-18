@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        app:cardCornerRadius="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivShelvesCover"
+            android:layout_width="@dimen/width_shelves_cover"
+            android:layout_height="@dimen/height_shelves_cover"
+            android:src="@drawable/book_cover" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvShelveName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toStartOf="@id/btnEnterShelve"
+        android:layout_toEndOf="@id/cardView"
+        android:text="10 Interaction Design Books to Read"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNumberOfBooks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvShelveName"
+        android:layout_alignStart="@id/tvShelveName"
+        android:text="3 books" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnEnterShelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_navigate_next_light_blue_24dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_straight_line"
+        android:layout_below="@id/cardView"
+        android:background="@color/straightLineColor" />
+</RelativeLayout>

@@ -56,5 +56,8 @@
     <dimen name="padding_recycler_view">76dp</dimen>
     <dimen name="width_height_profile">45dp</dimen>
     <dimen name="width_height_comment_profile">50dp</dimen>
+    <dimen name="width_shelves_cover">50dp</dimen>
+    <dimen name="height_shelves_cover">75dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

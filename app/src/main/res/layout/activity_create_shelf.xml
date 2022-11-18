@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateShelfActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_navigate_before_black_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:text="@string/lbl_create_shelf"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnBack"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:baselineAlignedChildIndex="@integer/material_motion_duration_long_1"
+        android:hint="@string/lbl_shelf_name"
+        app:boxBackgroundColor="@null"
+        app:boxStrokeColor="@color/custom_line_color"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:hintTextColor="@color/black">
+
+        <EditText
+            android:id="@+id/edtCreateShelf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:imeOptions="actionDone"
+            android:maxLength="50"
+            android:singleLine="true"
+            android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_straight_line"
+        android:layout_below="@id/textInputLayout"
+        android:background="@color/straightLineColor" />
+
+
+</RelativeLayout>

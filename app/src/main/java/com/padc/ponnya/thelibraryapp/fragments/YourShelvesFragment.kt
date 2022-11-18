@@ -5,16 +5,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.padc.ponnya.thelibraryapp.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.padc.ponnya.thelibraryapp.adapters.ShelvesAdapter
+import com.padc.ponnya.thelibraryapp.databinding.FragmentYourShelvesBinding
 
 class YourShelvesFragment : Fragment() {
 
+    private lateinit var binding: FragmentYourShelvesBinding
+
+    private lateinit var shelvesAdapter: ShelvesAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_your_shelves, container, false)
+        binding = FragmentYourShelvesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpRecyclerView()
+
+    }
+
+    private fun setUpRecyclerView() {
+        shelvesAdapter = ShelvesAdapter()
+        binding.rvShelves.adapter = shelvesAdapter
+        binding.rvShelves.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
 }

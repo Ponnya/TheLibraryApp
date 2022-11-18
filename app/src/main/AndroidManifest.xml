@@ -13,6 +13,15 @@
         android:theme="@style/Theme.TheLibraryApp"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CreateShelfActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
             android:name=".activities.DetailActivity"
             android:exported="false">
             <meta-data
