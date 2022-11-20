@@ -51,4 +51,7 @@
     <string name="lbl_about_this_book">About this book</string>
     <string name="lbl_rename_shelf">Rename shelf</string>
     <string name="lbl_delete_shelf">Delete Shelf</string>
+    <string name="lbl_find_your_next_read">Let\'s find your next read</string>
+    <string name="lbl_find_next_book_description">From romance to superheros to Thai suisine, we have tons of books for all your interests</string>
+    <string name="lbl_shop_for_books">Shop for books</string>
 </resources>

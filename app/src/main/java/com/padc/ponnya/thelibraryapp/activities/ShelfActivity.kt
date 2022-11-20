@@ -17,6 +17,7 @@ import com.padc.ponnya.thelibraryapp.mvp.views.ShelfView
 import com.padc.ponnya.thelibraryapp.utils.LARGE_GIRD
 import com.padc.ponnya.thelibraryapp.utils.LIST
 import com.padc.ponnya.thelibraryapp.utils.SMALL_GIRD
+import com.padc.ponnya.thelibraryapp.views.viewholders.ListData
 
 class ShelfActivity : BaseActivity(), ShelfView {
     private lateinit var binding: ActivityShelfBinding
@@ -69,12 +70,12 @@ class ShelfActivity : BaseActivity(), ShelfView {
 
     }
 
-    override fun tapOnChip(position: Int) {
-        binding.viewPodDisplayBook.clickOnChip(position)
+    override fun tapOnChip(listData: ListData) {
+        binding.viewPodDisplayBook.clickOnChip(listData)
     }
 
     override fun showSortByFragment() {
-        binding.viewPodDisplayBook.showSortByFragment(supportFragmentManager)
+        //  binding.viewPodDisplayBook.showSortByFragment(supportFragmentManager,mPresenter,mCheckedRadioButton)
     }
 
     override fun showViewAsFragment() {

@@ -11,21 +11,27 @@ import com.padc.ponnya.thelibraryapp.adapters.BookListAdapter
 import com.padc.ponnya.thelibraryapp.adapters.ChipAdapter
 import com.padc.ponnya.thelibraryapp.adapters.MoreEbooksAdapter
 import com.padc.ponnya.thelibraryapp.adapters.SmallEbookAdapter
+import com.padc.ponnya.thelibraryapp.data.vos.BookVO
 import com.padc.ponnya.thelibraryapp.databinding.ViewPodBookDisplayAndSortingBinding
 import com.padc.ponnya.thelibraryapp.delegates.ChipDelegate
 import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
+import com.padc.ponnya.thelibraryapp.delegates.SortByDelegate
 import com.padc.ponnya.thelibraryapp.delegates.ViewAsDelegate
 import com.padc.ponnya.thelibraryapp.fragments.SortByFragment
 import com.padc.ponnya.thelibraryapp.fragments.ViewAsFragment
-import com.padc.ponnya.thelibraryapp.views.viewholders.DummyClass
+import com.padc.ponnya.thelibraryapp.utils.AUTHOR
+import com.padc.ponnya.thelibraryapp.utils.RECENTLY_OPENED
+import com.padc.ponnya.thelibraryapp.utils.TITLE
+import com.padc.ponnya.thelibraryapp.views.viewholders.ListData
 
 class BookDisplayAndSortingViewPod @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : RelativeLayout(context, attrs) {
 
-    private lateinit var binding: ViewPodBookDisplayAndSortingBinding
+    private var binding: ViewPodBookDisplayAndSortingBinding
 
-    private val data = listOf(DummyClass(false), DummyClass(false), DummyClass(), DummyClass())
+    private var mListData: List<ListData> = listOf()
+    private var mBookList: List<BookVO> = listOf()
 
     private lateinit var mChipDelegate: ChipDelegate
 
@@ -34,6 +40,7 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
     private lateinit var smallEbookAdapter: SmallEbookAdapter
     private lateinit var moreEbooksAdapter: MoreEbooksAdapter
     private lateinit var viewAsFragment: ViewAsFragment
+    private lateinit var sortByFragment: SortByFragment
 
     private lateinit var mDelegate: Delegate
 
@@ -61,16 +68,88 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
         binding.btnViewAs.setOnClickListener {
             mDelegate.onTapBtnViewAs()
         }
+
+        binding.btnClearGenre.setOnClickListener {
+            mListData.forEach {
+                it.isSelected = false
+            }
+            binding.btnClearGenre.visibility = GONE
+
+            setNewDataToAdapter()
+
+        }
     }
 
+    private fun checkChip(): List<BookVO> {
+        mListData.filter { it.isSelected }.let {
+
+            if (it.isNotEmpty()) {
+                val data = it.map { listData -> listData.listName }
+                val selectedData: MutableList<BookVO> = mutableListOf()
+                mBookList.filter { mBookList ->
+                    mBookList.listName?.containsAll(data) ?: false
+                }.toMutableList().forEach { bookVO ->
+                    selectedData.add(bookVO)
+                }
+
+                //chipRecyclerView
+                chipAdapter.setNewData(resetChip(selectedData))
+
+                return selectedData
+
+            } else {
+
+                //chipRecyclerView
+                chipAdapter.setNewData(mListData)
+
+                return mBookList
+            }
+        }
+    }
+
+    private fun resetChip(bookList: List<BookVO>): List<ListData> {
+        //chipRecyclerView
+        val chip: MutableSet<ListData> = mutableSetOf()
+        if (mListData.isEmpty()) {
+            bookList.forEach {
+                it.listName?.forEach { listName ->
+                    if (listName != null) {
+                        chip.add(ListData(listName))
+                    }
+                }
+            }
+        } else {
+            bookList.forEach {
+                it.listName?.forEach { listName ->
+                    if (listName != null) {
+                        chip.add(mListData.first { data -> data.listName == listName })
+                    }
+                }
+            }
+        }
+
+        return chip.toList()
+    }
+
+    private fun setNewDataToAdapter() {
+        val bookList = checkChip()
+
+        //listGrid
+        bookListAdapter.setNewData(bookList)
+
+        //largeGrid
+        moreEbooksAdapter.setNewData(bookList)
+
+        //smallGrid
+        smallEbookAdapter.setNewData(bookList)
+    }
 
     fun setUpDelegate(delegate: Delegate) {
         mDelegate = delegate
     }
 
     fun setUpRecyclerView(
-        chipDelegate: ChipDelegate,
-        optionMenuDelegate: OptionMenuAndDetailDelegate
+        chipDelegate: ChipDelegate, optionMenuDelegate: OptionMenuAndDetailDelegate
     ) {
         //ChipRecyclerView
         mChipDelegate = chipDelegate
@@ -79,7 +158,6 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
         binding.rvBookGenre.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        chipAdapter.setNewData(data)
 
         //ListRecyclerView
         bookListAdapter = BookListAdapter(optionMenuDelegate)
@@ -105,10 +183,28 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
 
     }
 
+    fun setData(bookList: List<BookVO>) {
+        mListData = resetChip(bookList)
+        mBookList = bookList.sortedBy { it.updatedDate }
+        setNewDataToAdapter()
 
-    fun clickOnChip(position: Int) {
-        data[position].apply { isSelected = !isSelected }
-        chipAdapter.setNewData(data)
+    }
+
+
+    fun clickOnChip(listData: ListData) {
+        mListData.forEach {
+            if (it.listName == listData.listName) {
+                it.isSelected = !it.isSelected
+            }
+        }
+
+        if (mListData.any { it.isSelected }) {
+            binding.btnClearGenre.visibility = VISIBLE
+        } else {
+            binding.btnClearGenre.visibility = GONE
+        }
+
+        setNewDataToAdapter()
     }
 
     fun showListView() {
@@ -129,14 +225,28 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
         binding.rvDisplayBookSmallGrid.visibility = VISIBLE
     }
 
-    fun showSortByFragment(fragmentManager: FragmentManager) {
-        SortByFragment().show(fragmentManager, null)
+    fun sorting(checkedRadioButton: String) {
+        when (checkedRadioButton) {
+            RECENTLY_OPENED -> mBookList = mBookList.sortedBy { it.updatedDate }
+            TITLE -> mBookList = mBookList.sortedBy { it.title }
+            AUTHOR -> mBookList = mBookList.sortedBy { it.author }
+        }
+
+        setNewDataToAdapter()
+    }
+
+    fun showSortByFragment(
+        fragmentManager: FragmentManager,
+        delegate: SortByDelegate,
+        checkedRadioButton: String
+    ) {
+        sortByFragment = SortByFragment()
+        sortByFragment.show(fragmentManager, null)
+        sortByFragment.setUpSortByFragment(delegate, checkedRadioButton)
     }
 
     fun showViewAsFragment(
-        fragmentManager: FragmentManager,
-        delegate: ViewAsDelegate,
-        checkedRadioButton: String
+        fragmentManager: FragmentManager, delegate: ViewAsDelegate, checkedRadioButton: String
     ) {
         viewAsFragment = ViewAsFragment()
         viewAsFragment.show(fragmentManager, null)

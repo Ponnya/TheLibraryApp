@@ -1,17 +1,22 @@
 package com.padc.ponnya.thelibraryapp.mvp.presenters.impls
 
 import androidx.lifecycle.ViewModel
+import com.padc.ponnya.thelibraryapp.data.models.NYTimeModel
+import com.padc.ponnya.thelibraryapp.data.models.NYTimeModelImpl
+import com.padc.ponnya.thelibraryapp.data.vos.BookVO
 import com.padc.ponnya.thelibraryapp.mvp.presenters.ShelfPresenter
 import com.padc.ponnya.thelibraryapp.mvp.views.ShelfView
+import com.padc.ponnya.thelibraryapp.views.viewholders.ListData
 
 class ShelfPresenterImpl : ViewModel(), ShelfPresenter {
+    private val mModel: NYTimeModel = NYTimeModelImpl
     private lateinit var mView: ShelfView
     override fun initView(view: ShelfView) {
         mView = view
     }
 
-    override fun onTapChip(position: Int) {
-        mView.tapOnChip(position)
+    override fun onTapChip(listData: ListData) {
+        mView.tapOnChip(listData)
     }
 
     /**
@@ -38,7 +43,7 @@ class ShelfPresenterImpl : ViewModel(), ShelfPresenter {
     /**
      * MoreEbooksAdapter.OptionMenuDelegate callback method
      */
-    override fun onTapImage() {
+    override fun onTapImage(book: BookVO) {
         mView.navigateToDetailScreen()
     }
 

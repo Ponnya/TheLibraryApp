@@ -6,6 +6,7 @@ import com.padc.ponnya.thelibraryapp.mvp.views.LibraryFragmentView
 
 class LibraryFragmentPresenterImpl : ViewModel(), LibraryFragmentPresenter {
     private lateinit var mView: LibraryFragmentView
+
     override fun initView(view: LibraryFragmentView) {
         mView = view
     }

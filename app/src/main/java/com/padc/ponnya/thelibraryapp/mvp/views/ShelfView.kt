@@ -1,7 +1,9 @@
 package com.padc.ponnya.thelibraryapp.mvp.views
 
+import com.padc.ponnya.thelibraryapp.views.viewholders.ListData
+
 interface ShelfView {
-    fun tapOnChip(position: Int)
+    fun tapOnChip(listData: ListData)
     fun showSortByFragment()
     fun showViewAsFragment()
     fun openBookOptionMenu()

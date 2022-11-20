@@ -67,6 +67,9 @@ class HomeActivity : BaseActivity(), HomeView {
             }
         }
 
+        binding.layoutSearchBar.edtSearch.setOnClickListener {
+            startActivity(SearchActivity.newIntent(this))
+        }
 
     }
 

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,19 +13,25 @@ import com.padc.ponnya.thelibraryapp.activities.DetailActivity
 import com.padc.ponnya.thelibraryapp.activities.MoreBooksActivity
 import com.padc.ponnya.thelibraryapp.adapters.BooksByCategoryAdapter
 import com.padc.ponnya.thelibraryapp.adapters.ReadingBooksAdapter
+import com.padc.ponnya.thelibraryapp.data.vos.BookVO
+import com.padc.ponnya.thelibraryapp.data.vos.CategoryVO
 import com.padc.ponnya.thelibraryapp.databinding.FragmentHomeBinding
 import com.padc.ponnya.thelibraryapp.mvp.presenters.HomeFragmentPresenter
 import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.HomeFragmentPresenterImpl
 import com.padc.ponnya.thelibraryapp.mvp.views.HomeFragmentView
 import kotlin.math.abs
 
-class HomeFragment : Fragment(), HomeFragmentView {
+class HomeFragment : BaseFragment(), HomeFragmentView {
     private lateinit var binding: FragmentHomeBinding
 
     private lateinit var mBooksByCategoryAdapter: BooksByCategoryAdapter
     private lateinit var mReadingBooksAdapter: ReadingBooksAdapter
 
     private lateinit var mPresenter: HomeFragmentPresenter
+
+    private val homeFragmentVM: HomeFragmentPresenterImpl by lazy {
+        ViewModelProvider(this)[HomeFragmentPresenterImpl::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,10 +47,12 @@ class HomeFragment : Fragment(), HomeFragmentView {
 
         setUpVisaCardViewPager2()
         setUpRecyclerView()
+
+        mPresenter.onUiReady(this)
     }
 
     private fun setUpPresenter() {
-        mPresenter = ViewModelProvider(this)[HomeFragmentPresenterImpl::class.java]
+        mPresenter = homeFragmentVM
         mPresenter.initView(this)
     }
 
@@ -75,6 +82,21 @@ class HomeFragment : Fragment(), HomeFragmentView {
         binding.rvBooksByCategory.adapter = mBooksByCategoryAdapter
         binding.rvBooksByCategory.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun showCategoryAndBook(categoryList: List<CategoryVO>) {
+        mBooksByCategoryAdapter.setNewData(categoryList)
+    }
+
+    override fun showReadingBook(bookList: List<BookVO>) {
+        if (bookList.isNotEmpty()) {
+            mReadingBooksAdapter.setNewData(bookList)
+            binding.frameLayoutReadingBook.visibility = View.VISIBLE
+            binding.relativeLayoutNullReadingBook.visibility = View.GONE
+        } else {
+            binding.frameLayoutReadingBook.visibility = View.GONE
+            binding.relativeLayoutNullReadingBook.visibility = View.VISIBLE
+        }
     }
 
     override fun openMoreBookScreen() {

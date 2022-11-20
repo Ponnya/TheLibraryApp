@@ -11,10 +11,17 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.databinding.FragmentSortByBinding
+import com.padc.ponnya.thelibraryapp.delegates.SortByDelegate
+import com.padc.ponnya.thelibraryapp.utils.AUTHOR
+import com.padc.ponnya.thelibraryapp.utils.RECENTLY_OPENED
+import com.padc.ponnya.thelibraryapp.utils.TITLE
 
 class SortByFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentSortByBinding
+    private lateinit var mDelegate: SortByDelegate
+
+    private var mCheckedRadioButton = RECENTLY_OPENED
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,5 +46,55 @@ class SortByFragment : BottomSheetDialogFragment() {
             }
         }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpRadioChecked()
+        setUpListener()
+    }
+
+    fun setUpSortByFragment(delegate: SortByDelegate, checkRadioButton: String) {
+        mDelegate = delegate
+        mCheckedRadioButton = checkRadioButton
+
+    }
+
+
+    private fun setUpListener() {
+        binding.radioGroupSortBy.setOnCheckedChangeListener { _, i ->
+            when (i) {
+                binding.rbRecentlyOpened.id -> {
+                    mDelegate.sortByRecently()
+                    dismiss()
+                }
+                binding.rbTitle.id -> {
+                    mDelegate.sortByTitle()
+                    dismiss()
+                }
+                binding.rbAuthor.id -> {
+                    mDelegate.sortByAuthor()
+                    dismiss()
+
+                }
+            }
+        }
+
+    }
+
+    private fun setUpRadioChecked() {
+        when (mCheckedRadioButton) {
+            RECENTLY_OPENED -> {
+                binding.rbRecentlyOpened.isChecked = true
+            }
+            TITLE -> {
+                binding.rbTitle.isChecked = true
+            }
+            AUTHOR -> {
+                binding.rbAuthor.isChecked = true
+            }
+        }
+    }
+
 
 }

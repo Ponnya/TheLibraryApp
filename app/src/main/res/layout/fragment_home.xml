@@ -15,19 +15,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerReadingBook"
+            <FrameLayout
+                android:id="@+id/frameLayoutReadingBook"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_carousel"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:paddingStart="@dimen/padding_carousel"
-                android:paddingEnd="@dimen/padding_carousel" />
+                android:visibility="gone">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerReadingBook"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_carousel"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:paddingStart="@dimen/padding_carousel"
+                    android:paddingEnd="@dimen/padding_carousel" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutNullReadingBook"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_carousel"
+                android:layout_below="@id/frameLayoutReadingBook">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFindNextRead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tvFindNextReadDescription"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/margin_medium_2"
+                    android:text="@string/lbl_find_your_next_read"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFindNextReadDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/lbl_find_next_book_description"
+                    android:textColor="@color/secondaryTextColor" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnShopForBooks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvFindNextReadDescription"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:background="@drawable/background_chip"
+                    android:backgroundTint="@color/tabIndicatorColor"
+                    android:paddingStart="@dimen/margin_medium"
+                    android:paddingEnd="@dimen/margin_medium"
+                    android:text="@string/lbl_shop_for_books"
+                    android:textAllCaps="false" />
+
+
+            </RelativeLayout>
+
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutGenre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewPagerReadingBook"
+                android:layout_below="@id/relativeLayoutNullReadingBook"
                 app:tabIndicator="@drawable/background_top_rounded_corner"
                 app:tabIndicatorColor="@color/tabIndicatorColor"
                 app:tabIndicatorFullWidth="false"

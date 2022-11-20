@@ -11,16 +11,17 @@ class ChipViewHolder(
     private val binding: ViewHolderChipBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    private var mPosition = 0
+    private var mListData: ListData? = null
 
     init {
         binding.root.setOnClickListener {
-            delegate.onTapChip(mPosition)
+            mListData?.let { listData -> delegate.onTapChip(listData) }
         }
     }
 
-    fun dataBinding(data: DummyClass, position: Int) {
-        mPosition = position
+    fun dataBinding(data: ListData) {
+        mListData = data
+        binding.tvChipLabel.text = data.listName
         if (data.isSelected) {
             binding.tvChipLabel.setTextColor(
                 ContextCompat.getColor(
@@ -44,10 +45,7 @@ class ChipViewHolder(
     }
 }
 
-/**
- *Dummy Data
- *To Delete
- **/
-data class DummyClass(
+data class ListData(
+    val listName: String,
     var isSelected: Boolean = false,
 )

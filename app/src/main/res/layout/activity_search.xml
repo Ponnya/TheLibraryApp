@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SearchActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/textInputLayout"
+        android:layout_alignBottom="@id/textInputLayout"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:src="@drawable/ic_baseline_navigate_before_black_24dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_toEndOf="@id/btnBack"
+        android:hint="@string/lbl_search_play_books"
+        app:boxBackgroundColor="@null"
+        app:boxStrokeColor="@color/custom_line_color"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/black">
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textInputLayout">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicator="@drawable/background_top_rounded_corner"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="@dimen/margin_small"
+            app:tabSelectedTextColor="@color/tabIndicatorColor"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_ebooks" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_audiobooks" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:id="@+id/straightLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_line"
+            android:layout_below="@id/tabLayoutGenre"
+            android:background="@color/straightLineColor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvResultsFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/straightLine"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:text="Results from Google Play"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvResultsFrom"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/margin_medium_2" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

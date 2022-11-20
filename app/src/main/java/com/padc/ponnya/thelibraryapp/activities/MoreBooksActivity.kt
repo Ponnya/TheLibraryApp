@@ -30,6 +30,7 @@ class MoreBooksActivity : BaseActivity(), MoreBooksView {
         setUpPresenter()
 
         setUpRecyclerView()
+        setUpListener()
 
     }
 
@@ -44,6 +45,12 @@ class MoreBooksActivity : BaseActivity(), MoreBooksView {
             GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
 
         binding.rvMoreBooks.adapter = mMoreEbooksAdapter
+    }
+
+    private fun setUpListener() {
+        binding.btnBackToHomeScreen.setOnClickListener {
+
+        }
     }
 
     override fun openBookOptionMenu() {

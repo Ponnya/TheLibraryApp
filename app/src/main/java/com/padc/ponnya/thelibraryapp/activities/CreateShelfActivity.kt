@@ -22,11 +22,16 @@ class CreateShelfActivity : AppCompatActivity() {
         binding = ActivityCreateShelfBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        showKeyboardAndCursorOnEdt()
+        setUpListener()
+    }
+
+    private fun showKeyboardAndCursorOnEdt() {
         binding.edtCreateShelf.requestFocus()
         val inputMethodManager =
             this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(binding.edtCreateShelf, InputMethodManager.SHOW_IMPLICIT)
-        setUpListener()
+
     }
 
     private fun setUpListener() {

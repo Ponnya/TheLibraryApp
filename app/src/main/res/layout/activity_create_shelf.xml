@@ -32,7 +32,6 @@
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_marginTop="@dimen/margin_xxlarge"
         android:layout_marginEnd="@dimen/margin_medium_2"
-        android:baselineAlignedChildIndex="@integer/material_motion_duration_long_1"
         android:hint="@string/lbl_shelf_name"
         app:boxBackgroundColor="@null"
         app:boxStrokeColor="@color/custom_line_color"

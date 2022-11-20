@@ -1,3 +1,7 @@
 package com.padc.ponnya.thelibraryapp.mvp.presenters
 
-interface IBasePresenter
+import androidx.lifecycle.LifecycleOwner
+
+interface IBasePresenter {
+    fun onUiReady(owner: LifecycleOwner)
+}
