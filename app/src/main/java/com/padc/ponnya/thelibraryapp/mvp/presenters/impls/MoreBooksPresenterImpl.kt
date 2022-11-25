@@ -24,7 +24,7 @@ class MoreBooksPresenterImpl : ViewModel(), MoreBooksPresenter {
     /**
      * MoreEbooksAdapter.OptionMenuDelegate callback method
      */
-    override fun onTapOptionMenu() {
+    override fun onTapOptionMenu(bookVO: BookVO) {
         mView.openBookOptionMenu()
     }
 

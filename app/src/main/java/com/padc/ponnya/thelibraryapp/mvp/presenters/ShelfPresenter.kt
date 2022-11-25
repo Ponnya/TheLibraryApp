@@ -1,13 +1,16 @@
 package com.padc.ponnya.thelibraryapp.mvp.presenters
 
-import com.padc.ponnya.thelibraryapp.delegates.ChipDelegate
-import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
-import com.padc.ponnya.thelibraryapp.delegates.ShelfOptionMenuDelegate
-import com.padc.ponnya.thelibraryapp.delegates.ViewAsDelegate
+import androidx.lifecycle.LifecycleOwner
+import com.padc.ponnya.thelibraryapp.data.vos.ShelfVO
+import com.padc.ponnya.thelibraryapp.delegates.*
 import com.padc.ponnya.thelibraryapp.mvp.views.ShelfView
 import com.padc.ponnya.thelibraryapp.views.viewpods.BookDisplayAndSortingViewPod
 
-interface ShelfPresenter : ChipDelegate, BookDisplayAndSortingViewPod.Delegate,
-    OptionMenuAndDetailDelegate, ViewAsDelegate, ShelfOptionMenuDelegate {
+interface ShelfPresenter : IBasePresenter, ChipDelegate, BookDisplayAndSortingViewPod.Delegate,
+    OptionMenuAndDetailDelegate, ViewAsDelegate, ShelfOptionMenuDelegate, SortByDelegate {
     fun initView(view: ShelfView)
+    fun onUIReady(owner: LifecycleOwner, shelfId: Int)
+    fun onTapShelfOptionMenu()
+    fun onTapBack()
+    fun onTapDoneButton(shelfVO: ShelfVO)
 }

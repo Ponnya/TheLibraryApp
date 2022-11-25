@@ -8,4 +8,7 @@ const val RECENTLY_OPENED = "RECENTLY_OPENED"
 const val TITLE = "TITLE"
 const val AUTHOR = "AUTHOR"
 
+const val ADD_TO_SHELVES = "ADD_TO_SHELVES"
+const val YOUR_SHELVES = "YOUR_SHELVES"
+
 const val SCROLL_Y_POSITION = 0

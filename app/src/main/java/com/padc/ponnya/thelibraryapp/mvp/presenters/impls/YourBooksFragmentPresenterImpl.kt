@@ -46,8 +46,8 @@ class YourBooksFragmentPresenterImpl : ViewModel(), YourBooksFragmentPresenter {
     /**
      * MoreEbooksAdapter.OptionMenuDelegate callback method
      */
-    override fun onTapOptionMenu() {
-        mView.openBookOptionMenu()
+    override fun onTapOptionMenu(bookVO: BookVO) {
+        mView.openBookOptionMenu(bookVO)
     }
 
     /**

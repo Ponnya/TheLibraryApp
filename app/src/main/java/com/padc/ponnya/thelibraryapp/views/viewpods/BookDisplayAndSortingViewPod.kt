@@ -228,10 +228,15 @@ class BookDisplayAndSortingViewPod @JvmOverloads constructor(
     fun sorting(checkedRadioButton: String) {
         when (checkedRadioButton) {
             RECENTLY_OPENED -> mBookList = mBookList.sortedBy { it.updatedDate }
-            TITLE -> mBookList = mBookList.sortedBy { it.title }
+            TITLE -> mBookList = mBookList.sortedBy { it.bookTitle }
             AUTHOR -> mBookList = mBookList.sortedBy { it.author }
         }
 
+        binding.tvSortBy.text = when (checkedRadioButton) {
+            RECENTLY_OPENED -> "Recent"
+            TITLE -> "Title"
+            else -> "Author"
+        }
         setNewDataToAdapter()
     }
 

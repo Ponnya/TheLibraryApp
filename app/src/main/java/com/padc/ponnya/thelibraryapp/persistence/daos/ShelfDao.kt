@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Update
 import com.padc.ponnya.thelibraryapp.data.vos.ShelfVO
 
 @Dao
@@ -16,6 +17,12 @@ interface ShelfDao {
     @Query("SELECT * FROM shelf")
     fun selectAllShelf(): LiveData<List<ShelfVO>>
 
-    @Query("DELETE FROM shelf WHERE shelfName = :shelfName")
-    fun deleteShelf(shelfName: String?)
+    @Query("SELECT * FROM shelf where shelfId = :shelfId")
+    fun selectSingleShelf(shelfId: Int?): ShelfVO?
+
+    @Update(onConflict = REPLACE)
+    fun updateShelf(shelfVO: ShelfVO?)
+
+    @Query("DELETE FROM shelf WHERE shelfId = :shelfId")
+    fun deleteShelf(shelfId: Int?)
 }

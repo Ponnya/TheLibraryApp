@@ -12,9 +12,11 @@ class ReadingBooksViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
+    private lateinit var bookVO: BookVO
+
     init {
         binding.btnOptionMenu.setOnClickListener {
-            delegate.onTapCarouselOptionMenu()
+            delegate.onTapCarouselOptionMenu(bookVO)
         }
         binding.ivBookCover.setOnClickListener {
             delegate.onTapCarouselImageView()
@@ -22,6 +24,7 @@ class ReadingBooksViewHolder(
     }
 
     fun bindData(book: BookVO) {
+        bookVO = book
         Glide.with(binding.root)
             .load(book.bookImage)
             .into(binding.ivBookCover)

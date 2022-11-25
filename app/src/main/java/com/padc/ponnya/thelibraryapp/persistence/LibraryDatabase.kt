@@ -6,10 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.padc.ponnya.thelibraryapp.data.vos.BookVO
 import com.padc.ponnya.thelibraryapp.data.vos.ShelfVO
+import com.padc.ponnya.thelibraryapp.data.vos.ShelfWithBookVO
 import com.padc.ponnya.thelibraryapp.persistence.daos.BookDao
 import com.padc.ponnya.thelibraryapp.persistence.daos.ShelfDao
+import com.padc.ponnya.thelibraryapp.persistence.daos.ShelfWithBookDao
 
-@Database(entities = [BookVO::class, ShelfVO::class], version = 5, exportSchema = false)
+@Database(
+    entities = [BookVO::class, ShelfVO::class, ShelfWithBookVO::class],
+    version = 9,
+    exportSchema = false
+)
 abstract class LibraryDatabase : RoomDatabase() {
     companion object {
         private const val DB_NAME = "THE_LIBRARY_DB"
@@ -29,4 +35,5 @@ abstract class LibraryDatabase : RoomDatabase() {
 
     abstract fun bookDao(): BookDao
     abstract fun shelfDao(): ShelfDao
+    abstract fun shelfWithBookDao(): ShelfWithBookDao
 }

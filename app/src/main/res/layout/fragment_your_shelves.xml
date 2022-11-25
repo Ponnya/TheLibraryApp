@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.YourShelvesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvShelves"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/padding_recycler_view" />
+
+
+    <RelativeLayout
+        android:id="@+id/rlNoShelves"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rvShelves">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNoShelves"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_no_shelves_display_icon"
+            android:src="@drawable/no_shelves" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoShelvesLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivNoShelves"
+            android:layout_centerHorizontal="true"
+            android:text="@string/lbl_no_shelves"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoShelvesDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNoShelvesLbl"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/lbl_no_shevles_description"
+            android:textColor="@color/secondaryTextColor" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_no_shelves_display_icon"
+            android:layout_below="@id/tvNoShelvesDescription" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnCreateNewShelf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_recycler_view"
+        android:backgroundTint="@color/tabIndicatorColor"
+        android:text="@string/lbl_create_new"
+        android:textColor="@color/white"
+        app:icon="@drawable/ic_baseline_edit_black_24dp"
+        app:iconTint="@color/white" />
 </RelativeLayout>

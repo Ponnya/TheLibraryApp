@@ -13,6 +13,8 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
 
     private val mModel: NYTimeModel = NYTimeModelImpl
 
+    private var mBookTitle: String = ""
+
     override fun initView(view: HomeFragmentView) {
         mView = view
     }
@@ -42,14 +44,14 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
     }
 
     /**
-     * BooksByCategoryAdapter.EbooksAdapter.OptionMenuDelegate callback method
+     * BooksByCategoryAdapter.EbooksAdapter.OptionMenuAndDetailDelegate callback method
      */
-    override fun onTapOptionMenu() {
-        mView.openBookOptionMenu()
+    override fun onTapOptionMenu(bookVO: BookVO) {
+        mView.openBookOptionMenu(bookVO)
     }
 
     /**
-     * BooksByCategoryAdapter.EbooksAdapter.OptionMenuDelegate callback method
+     * BooksByCategoryAdapter.EbooksAdapter.OptionMenuAndDetailDelegate callback method
      */
     override fun onTapImage(book: BookVO) {
         mModel.saveBookInDatabase(book)
@@ -59,8 +61,9 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
     /**
      * ReadingBooksAdapter.CarouselOptionMenuDelegate callback method
      */
-    override fun onTapCarouselOptionMenu() {
-        mView.openBookCarouselOptionMenu()
+    override fun onTapCarouselOptionMenu(book: BookVO) {
+        mBookTitle = book.bookTitle
+        mView.openBookCarouselOptionMenu(book)
     }
 
     /**
@@ -68,5 +71,9 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
      */
     override fun onTapCarouselImageView() {
         mView.navigateToDetail()
+    }
+
+    override fun onTapAddToShelves() {
+        mView.openAddToShelvesScreen(mBookTitle)
     }
 }

@@ -1,8 +1,7 @@
 package com.padc.ponnya.thelibraryapp.data.models
 
 import androidx.lifecycle.LiveData
-import com.padc.ponnya.thelibraryapp.data.vos.BookVO
-import com.padc.ponnya.thelibraryapp.data.vos.CategoryVO
+import com.padc.ponnya.thelibraryapp.data.vos.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -27,9 +26,9 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
     }
 
     override fun saveBookInDatabase(bookVO: BookVO) {
-        val book = mLibraryDatabase?.bookDao()?.selectBookByTitle(bookVO.title)
+        val book = mLibraryDatabase?.bookDao()?.selectBookByTitle(bookVO.bookTitle)
         var data: List<String?>? = null
-        var bookData: BookVO? = null
+        var bookData: BookVO?
         if (book != null) {
             book.listName?.let { listName ->
                 bookVO.listName?.let { listName1 ->
@@ -51,6 +50,51 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
 
     override fun getMovieDetail() {
 
+    }
+
+    override fun createShelf(shelf: ShelfVO) {
+        mLibraryDatabase?.shelfDao()?.insertSingleShelf(shelf)
+    }
+
+    override fun addBook(bookTitle: String, shelfList: List<ShelfVO>) {
+        val book = mLibraryDatabase?.bookDao()?.selectBookByTitle(bookTitle)
+        shelfList.forEach {
+            val toUpdateShelf =
+                mLibraryDatabase?.shelfDao()?.selectSingleShelf(it.shelfId)?.let { shelf ->
+                    shelf.copy(
+                        bookCount = shelf.bookCount + 1,
+                        shelfCover = book?.bookImage
+                    )
+                }
+
+
+            if (toUpdateShelf != null) {
+                updateShelf(toUpdateShelf)
+                mLibraryDatabase?.shelfWithBookDao()
+                    ?.insert(ShelfWithBookVO(toUpdateShelf.shelfId, bookTitle))
+            }
+        }
+
+    }
+
+    override fun getShelves(): LiveData<List<ShelfVO>>? {
+        return mLibraryDatabase?.shelfDao()?.selectAllShelf()
+    }
+
+    override fun updateShelf(shelfVO: ShelfVO) {
+        mLibraryDatabase?.shelfDao()?.updateShelf(shelfVO)
+    }
+
+    override fun deleteShelf(shelfId: Int) {
+        // delete from shelfWithBook Table
+        mLibraryDatabase?.shelfWithBookDao()?.deleteShelf(shelfId)
+
+        // delete from shelf Table
+        mLibraryDatabase?.shelfDao()?.deleteShelf(shelfId)
+    }
+
+    override fun getBooksFormShelf(shelfId: Int): LiveData<ShelvesWithBookPair>? {
+        return mLibraryDatabase?.shelfWithBookDao()?.getBooks(shelfId)
     }
 
 }

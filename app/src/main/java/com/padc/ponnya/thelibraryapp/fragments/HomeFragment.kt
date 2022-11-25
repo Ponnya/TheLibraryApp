@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.padc.ponnya.thelibraryapp.activities.AddToShelvesActivity
 import com.padc.ponnya.thelibraryapp.activities.DetailActivity
 import com.padc.ponnya.thelibraryapp.activities.MoreBooksActivity
 import com.padc.ponnya.thelibraryapp.adapters.BooksByCategoryAdapter
@@ -28,6 +30,9 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
     private lateinit var mReadingBooksAdapter: ReadingBooksAdapter
 
     private lateinit var mPresenter: HomeFragmentPresenter
+
+    private lateinit var carouselOptionMenuFragment: CarouselOptionMenuFragment
+    private lateinit var optionMenuFragment: OptionMenuFragment
 
     private val homeFragmentVM: HomeFragmentPresenterImpl by lazy {
         ViewModelProvider(this)[HomeFragmentPresenterImpl::class.java]
@@ -103,17 +108,29 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
         startActivity(context?.let { MoreBooksActivity.newIntent(it) })
     }
 
-    override fun openBookCarouselOptionMenu() {
-        CarouselOptionMenuFragment().show(childFragmentManager, null)
+    override fun openBookCarouselOptionMenu(bookVO: BookVO) {
+        carouselOptionMenuFragment = CarouselOptionMenuFragment()
+        carouselOptionMenuFragment.show(childFragmentManager, null)
+        carouselOptionMenuFragment.setUpCarouselOptionMenuFragment(mPresenter, bookVO)
+
     }
 
-    override fun openBookOptionMenu() {
-        OptionMenuFragment().show(childFragmentManager, null)
+    override fun openBookOptionMenu(bookVO: BookVO) {
+        optionMenuFragment = OptionMenuFragment()
+        optionMenuFragment.show(childFragmentManager, null)
+        optionMenuFragment.setUpOptionMenuFragment(bookVO)
+
     }
 
     override fun navigateToDetail() {
         startActivity(context?.let { DetailActivity.newIntent(it) })
     }
 
+    override fun openAddToShelvesScreen(bookTile: String) {
+        resultLauncher.launch(context?.let { AddToShelvesActivity.newIntent(it, bookTile) })
+    }
+
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {}
 
 }

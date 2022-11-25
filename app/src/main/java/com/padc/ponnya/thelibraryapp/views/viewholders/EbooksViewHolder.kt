@@ -16,10 +16,10 @@ class EbooksViewHolder(
 
     init {
         binding.btnEbookOptionMenu.setOnClickListener {
-            delegate.onTapOptionMenu()
+            mBook?.let { book -> delegate.onTapOptionMenu(book) }
         }
         binding.ivEbookCover.setOnClickListener {
-            mBook?.let { it1 -> delegate.onTapImage(it1) }
+            mBook?.let { book -> delegate.onTapImage(book) }
 
         }
     }
@@ -29,7 +29,7 @@ class EbooksViewHolder(
         Glide.with(binding.root)
             .load(book.bookImage)
             .into(binding.ivEbookCover)
-        binding.tvEbookName.text = book.title
+        binding.tvEbookName.text = book.bookTitle
         binding.tvEbookAuthor.text = book.author
     }
 }

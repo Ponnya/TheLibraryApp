@@ -54,4 +54,7 @@
     <string name="lbl_find_your_next_read">Let\'s find your next read</string>
     <string name="lbl_find_next_book_description">From romance to superheros to Thai suisine, we have tons of books for all your interests</string>
     <string name="lbl_shop_for_books">Shop for books</string>
+    <string name="lbl_no_shelves">No shelves</string>
+    <string name="lbl_no_shevles_description">Create shelves to match the way you think.</string>
+    <string name="lbl_create_new">Create new</string>
 </resources>

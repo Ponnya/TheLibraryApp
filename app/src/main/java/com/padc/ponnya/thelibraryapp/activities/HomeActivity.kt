@@ -7,11 +7,13 @@ import android.view.View
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.lifecycle.ViewModelProvider
 import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.databinding.ActivityHomeBinding
 import com.padc.ponnya.thelibraryapp.fragments.HomeFragment
 import com.padc.ponnya.thelibraryapp.fragments.LibraryFragment
 import com.padc.ponnya.thelibraryapp.mvp.presenters.HomePresenter
+import com.padc.ponnya.thelibraryapp.mvp.presenters.impls.HomePresenterImpl
 import com.padc.ponnya.thelibraryapp.mvp.views.HomeView
 import com.padc.ponnya.thelibraryapp.utils.SCROLL_Y_POSITION
 
@@ -24,11 +26,18 @@ class HomeActivity : BaseActivity(), HomeView {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpPresenter()
 
         setUpFragment()
         setUpListener()
-        binding.appBar.elevation = 50f
 
+        mHomePresenter.onUiReady(this)
+
+    }
+
+    private fun setUpPresenter() {
+        mHomePresenter = ViewModelProvider(this)[HomePresenterImpl::class.java]
+        mHomePresenter.initView(this)
     }
 
     private fun setUpFragment() {

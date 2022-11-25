@@ -18,7 +18,7 @@ interface BookDao {
     @Query("SELECT * FROM books")
     fun selectAllBooks(): LiveData<List<BookVO>>
 
-    @Query("SELECT * FROM books WHERE title = :title ")
+    @Query("SELECT * FROM books WHERE bookTitle = :title ")
     fun selectBookByTitle(title: String): BookVO?
 
     @Query("DELETE FROM books")

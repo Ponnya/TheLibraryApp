@@ -26,6 +26,8 @@ class YourBooksFragment : Fragment(), YourBooksFragmentView {
     private var mCheckedRadioButtonViewAs = LIST
     private var mCheckedRadioButtonSortBy = RECENTLY_OPENED
 
+    private lateinit var optionMenuFragment: OptionMenuFragment
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -76,8 +78,10 @@ class YourBooksFragment : Fragment(), YourBooksFragmentView {
         )
     }
 
-    override fun openBookOptionMenu() {
-        CarouselOptionMenuFragment().show(childFragmentManager, null)
+    override fun openBookOptionMenu(bookVO: BookVO) {
+        optionMenuFragment = OptionMenuFragment()
+        optionMenuFragment.show(childFragmentManager, null)
+        optionMenuFragment.setUpOptionMenuFragment(bookVO)
     }
 
     override fun changeListView() {

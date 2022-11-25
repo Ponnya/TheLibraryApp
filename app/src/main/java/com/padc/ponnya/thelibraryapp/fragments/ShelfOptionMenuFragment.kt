@@ -55,5 +55,11 @@ class ShelfOptionMenuFragment : BottomSheetDialogFragment() {
             mDelegate.onTapRename()
             dismiss()
         }
+
+        binding.llDeleteShelf.setOnClickListener {
+            dismiss()
+            mDelegate.onTapDelete()
+
+        }
     }
 }

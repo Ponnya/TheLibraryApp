@@ -59,5 +59,6 @@
     <dimen name="width_shelves_cover">50dp</dimen>
     <dimen name="height_shelves_cover">75dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_no_shelves_display_icon">200dp</dimen>
 
 </resources>

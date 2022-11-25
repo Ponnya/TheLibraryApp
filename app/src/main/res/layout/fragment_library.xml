@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.LibraryFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutBooksAndShelves"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicator="@drawable/background_top_rounded_corner"
-        app:tabIndicatorColor="@color/tabIndicatorColor"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="@dimen/margin_small"
-        app:tabSelectedTextColor="@color/tabIndicatorColor"
-        app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
+        app:elevation="0dp">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutBooksAndShelves"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_your_books" />
+            app:tabIndicator="@drawable/background_top_rounded_corner"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="@dimen/margin_small"
+            app:tabSelectedTextColor="@color/tabIndicatorColor"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_your_shelves" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_your_books" />
 
-    </com.google.android.material.tabs.TabLayout>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_your_shelves" />
 
-    <View
-        android:id="@+id/straightLine"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_straight_line"
-        android:layout_below="@id/tabLayoutBooksAndShelves"
-        android:background="@color/straightLineColor" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:id="@+id/straightLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_straight_line"
+            android:layout_below="@id/tabLayoutBooksAndShelves"
+            android:background="@color/straightLineColor" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:id="@+id/fragmentChildContainer"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_below="@id/straightLine" />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

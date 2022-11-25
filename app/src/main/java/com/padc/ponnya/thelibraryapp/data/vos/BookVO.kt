@@ -35,7 +35,7 @@ data class BookVO(
 
     @SerializedName("title")
     @PrimaryKey
-    val title: String,
+    val bookTitle: String,
 
     @ColumnInfo(name = "list_name")
     val listName: List<String?>?,

@@ -8,7 +8,7 @@ interface YourBooksFragmentView {
     fun tapOnChip(listData: ListData)
     fun showSortByFragment()
     fun showViewAsFragment()
-    fun openBookOptionMenu()
+    fun openBookOptionMenu(bookVO: BookVO)
     fun changeListView()
     fun changeLargeGridView()
     fun changeSmallGridView()

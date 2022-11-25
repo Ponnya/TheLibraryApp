@@ -7,7 +7,8 @@ interface HomeFragmentView : BaseView {
     fun showCategoryAndBook(categoryList: List<CategoryVO>)
     fun showReadingBook(bookList: List<BookVO>)
     fun openMoreBookScreen()
-    fun openBookCarouselOptionMenu()
-    fun openBookOptionMenu()
+    fun openBookCarouselOptionMenu(bookVO: BookVO)
+    fun openBookOptionMenu(bookVO: BookVO)
     fun navigateToDetail()
+    fun openAddToShelvesScreen(bookTile: String)
 }

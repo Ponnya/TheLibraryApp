@@ -15,7 +15,7 @@ class MoreEbooksViewHolder(
 
     init {
         binding.btnMoreEbookOptionMenu.setOnClickListener {
-            delegate.onTapOptionMenu()
+            mBookVO?.let { book -> delegate.onTapOptionMenu(book) }
         }
         binding.ivMoreEbookCover.setOnClickListener {
             mBookVO?.let { bookVO -> delegate.onTapImage(bookVO) }
@@ -29,7 +29,7 @@ class MoreEbooksViewHolder(
             .load(bookVO.bookImage)
             .into(binding.ivMoreEbookCover)
 
-        binding.tvMoreEbookName.text = bookVO.title
+        binding.tvMoreEbookName.text = bookVO.bookTitle
         binding.tvMoreEbookAuthor.text = bookVO.author
     }
 }

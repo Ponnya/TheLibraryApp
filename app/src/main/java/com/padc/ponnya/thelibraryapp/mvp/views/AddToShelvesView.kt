@@ -2,8 +2,7 @@ package com.padc.ponnya.thelibraryapp.mvp.views
 
 import com.padc.ponnya.thelibraryapp.data.vos.ShelfVO
 
-interface YourShelvesFragmentView {
-    fun navigateToShelfScreen(shelfID: Int)
+interface AddToShelvesView : BaseView {
     fun showShelves(shelves: List<ShelfVO>)
-    fun openCreateNewShelfScreen()
+    fun closeAddToShelvesScreen()
 }
