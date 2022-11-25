@@ -11,4 +11,7 @@ data class CategoryVO(
 
     @SerializedName("books")
     val books: List<BookVO>?,
+
+    @SerializedName("book_details")
+    val bookDetail: List<BookVO>?,
 )

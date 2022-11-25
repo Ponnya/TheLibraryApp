@@ -15,15 +15,15 @@ class BooksByCategoryViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root) {
     private lateinit var mEbooksAdapter: EbooksAdapter
-
-
+    private var mList: String? =null
     init {
         binding.btnSeeMore.setOnClickListener {
-            delegate.onTapBtnMore()
+            mList?.let { list -> delegate.onTapBtnMore(list) }
         }
     }
 
     fun bindData(categoryVO: CategoryVO) {
+        mList = categoryVO.listName
         mEbooksAdapter = EbooksAdapter(mOptionMenuDelegate)
         binding.tvCategoryLabel.text = categoryVO.listName
         binding.rvBooks.adapter = mEbooksAdapter

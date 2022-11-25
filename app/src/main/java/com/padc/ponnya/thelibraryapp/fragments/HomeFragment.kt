@@ -104,8 +104,8 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
         }
     }
 
-    override fun openMoreBookScreen() {
-        startActivity(context?.let { MoreBooksActivity.newIntent(it) })
+    override fun openMoreBookScreen(list: String) {
+        startActivity(context?.let { MoreBooksActivity.newIntent(it, list) })
     }
 
     override fun openBookCarouselOptionMenu(bookVO: BookVO) {
@@ -122,8 +122,8 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
 
     }
 
-    override fun navigateToDetail() {
-        startActivity(context?.let { DetailActivity.newIntent(it) })
+    override fun navigateToDetail(bookTile: String) {
+        startActivity(context?.let { DetailActivity.newIntent(it, bookTile) })
     }
 
     override fun openAddToShelvesScreen(bookTile: String) {

@@ -12,7 +12,7 @@ interface YourBooksFragmentView {
     fun changeListView()
     fun changeLargeGridView()
     fun changeSmallGridView()
-    fun navigateToDetailScreen()
+    fun navigateToDetailScreen(bookTile: String)
     fun sortByRecentlyOpened()
     fun sortByTitle()
     fun sortByAuthor()

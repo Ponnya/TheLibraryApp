@@ -14,7 +14,7 @@ interface ShelfView {
     fun changeListView()
     fun changeLargeGridView()
     fun changeSmallGridView()
-    fun navigateToDetailScreen()
+    fun navigateToDetailScreen(bookTitle: String)
     fun sortByRecentlyOpened()
     fun sortByTitle()
     fun sortByAuthor()

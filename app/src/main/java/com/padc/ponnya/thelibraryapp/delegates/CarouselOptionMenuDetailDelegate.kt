@@ -4,6 +4,6 @@ import com.padc.ponnya.thelibraryapp.data.vos.BookVO
 
 interface CarouselOptionMenuDetailDelegate {
     fun onTapCarouselOptionMenu(bookVO: BookVO)
-    fun onTapCarouselImageView()
+    fun onTapCarouselImageView(bookTile: String)
     fun onTapAddToShelves()
 }

@@ -17,29 +17,6 @@ class HomePresenterImpl : ViewModel(), HomePresenter {
 
     @SuppressLint("SuspiciousIndentation")
     override fun onUiReady(owner: LifecycleOwner) {
-        /*   mModel.createShelf(ShelfVO("Testing Shelf"))
-
-           var shelfId1: Int = -1
-           mModel.getShelves()?.observe(owner){
-               println("----------------This is Shelves----------------------------")
-               println(it)
-               shelfId1 = it.first().shelfId
-           }
-
-           var bookTitle1: String =""
-           mModel.getSavedBook()?.observe(owner){
-               println("----------------------------This is saved book------------------------")
-               println(it)
-               bookTitle1 = it.first().bookTitle
-               mModel.addBook( it.first().bookTitle,1)
-           }
-
-
-
-           mModel.getBooksFormShelf()?.observe(owner){
-               println("-------------------------This is Book from shelf---------------------------")
-               println(it)
-           }*/
     }
 
 

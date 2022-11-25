@@ -139,8 +139,8 @@ class ShelfActivity : BaseActivity(), ShelfView {
         mCheckedRadioButtonViewAs = SMALL_GIRD
     }
 
-    override fun navigateToDetailScreen() {
-        startActivity(DetailActivity.newIntent(this))
+    override fun navigateToDetailScreen(bookTitle: String) {
+        startActivity(DetailActivity.newIntent(this, bookTitle))
     }
 
 

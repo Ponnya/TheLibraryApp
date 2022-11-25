@@ -54,7 +54,7 @@ class YourBooksFragmentPresenterImpl : ViewModel(), YourBooksFragmentPresenter {
      * MoreEbooksAdapter.OptionMenuDelegate callback method
      */
     override fun onTapImage(book: BookVO) {
-        mView.navigateToDetailScreen()
+        mView.navigateToDetailScreen(book.bookTitle)
     }
 
     /**

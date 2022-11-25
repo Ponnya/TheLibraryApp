@@ -1,5 +1,5 @@
 package com.padc.ponnya.thelibraryapp.delegates
 
 interface BooksByCategoryDelegate {
-    fun onTapBtnMore()
+    fun onTapBtnMore(list: String)
 }

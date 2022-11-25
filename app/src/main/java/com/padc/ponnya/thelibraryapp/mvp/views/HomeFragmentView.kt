@@ -6,9 +6,9 @@ import com.padc.ponnya.thelibraryapp.data.vos.CategoryVO
 interface HomeFragmentView : BaseView {
     fun showCategoryAndBook(categoryList: List<CategoryVO>)
     fun showReadingBook(bookList: List<BookVO>)
-    fun openMoreBookScreen()
+    fun openMoreBookScreen(list: String)
     fun openBookCarouselOptionMenu(bookVO: BookVO)
     fun openBookOptionMenu(bookVO: BookVO)
-    fun navigateToDetail()
+    fun navigateToDetail(bookTile: String)
     fun openAddToShelvesScreen(bookTile: String)
 }

@@ -13,34 +13,21 @@ import com.padc.ponnya.thelibraryapp.persistence.typeconverters.ListNameTypeConv
 )
 data class BookVO(
 
-    @SerializedName("book_image")
-    @ColumnInfo(name = "book_image")
-    val bookImage: String?,
+    @SerializedName("book_image") @ColumnInfo(name = "book_image") val bookImage: String?,
 
-    @SerializedName("author")
-    @ColumnInfo(name = "author")
-    val author: String?,
+    @SerializedName("author") @ColumnInfo(name = "author") val author: String?,
 
-    @SerializedName("created_date")
-    @ColumnInfo(name = "created_date")
-    val createdDate: String?,
+    @SerializedName("created_date") @ColumnInfo(name = "created_date") val createdDate: String?,
 
-    @SerializedName("description")
-    @ColumnInfo(name = "description")
-    val description: String?,
+    @SerializedName("description") @ColumnInfo(name = "description") val description: String?,
 
-    @SerializedName("price")
-    @ColumnInfo(name = "price")
-    val price: String?,
+    @SerializedName("price") @ColumnInfo(name = "price") val price: String?,
 
-    @SerializedName("title")
-    @PrimaryKey
-    val bookTitle: String,
+    @SerializedName("title") @PrimaryKey val bookTitle: String,
 
-    @ColumnInfo(name = "list_name")
-    val listName: List<String?>?,
+    @ColumnInfo(name = "list_name") val listName: List<String?>?,
 
-    @SerializedName("updated_date")
-    @ColumnInfo(name = "updated_date")
-    val updatedDate: String?,
+    @SerializedName("updated_date") @ColumnInfo(name = "updated_date") val updatedDate: String?,
+
+    @ColumnInfo(name = "page_count") val pageCount: Int = 0
 )

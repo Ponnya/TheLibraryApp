@@ -19,7 +19,7 @@ class ReadingBooksViewHolder(
             delegate.onTapCarouselOptionMenu(bookVO)
         }
         binding.ivBookCover.setOnClickListener {
-            delegate.onTapCarouselImageView()
+            delegate.onTapCarouselImageView(bookVO.bookTitle)
         }
     }
 

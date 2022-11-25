@@ -39,8 +39,8 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
     /**
      * BooksByCategoryAdapter.BooksByCategoryDelegate callback method
      */
-    override fun onTapBtnMore() {
-        mView.openMoreBookScreen()
+    override fun onTapBtnMore(list: String) {
+        mView.openMoreBookScreen(list)
     }
 
     /**
@@ -55,22 +55,22 @@ class HomeFragmentPresenterImpl : ViewModel(), HomeFragmentPresenter {
      */
     override fun onTapImage(book: BookVO) {
         mModel.saveBookInDatabase(book)
-        mView.navigateToDetail()
+        mView.navigateToDetail(book.bookTitle)
     }
 
     /**
      * ReadingBooksAdapter.CarouselOptionMenuDelegate callback method
      */
-    override fun onTapCarouselOptionMenu(book: BookVO) {
-        mBookTitle = book.bookTitle
-        mView.openBookCarouselOptionMenu(book)
+    override fun onTapCarouselOptionMenu(bookVO: BookVO) {
+        mBookTitle = bookVO.bookTitle
+        mView.openBookCarouselOptionMenu(bookVO)
     }
 
     /**
      * ReadingBooksAdapter.CarouselOptionMenuDelegate callback method
      */
-    override fun onTapCarouselImageView() {
-        mView.navigateToDetail()
+    override fun onTapCarouselImageView(bookTile: String) {
+        mView.navigateToDetail(bookTile)
     }
 
     override fun onTapAddToShelves() {

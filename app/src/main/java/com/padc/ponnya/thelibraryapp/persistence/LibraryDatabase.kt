@@ -13,7 +13,7 @@ import com.padc.ponnya.thelibraryapp.persistence.daos.ShelfWithBookDao
 
 @Database(
     entities = [BookVO::class, ShelfVO::class, ShelfWithBookVO::class],
-    version = 9,
+    version = 10,
     exportSchema = false
 )
 abstract class LibraryDatabase : RoomDatabase() {

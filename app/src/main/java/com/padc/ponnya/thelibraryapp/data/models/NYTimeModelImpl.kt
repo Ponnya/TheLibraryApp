@@ -3,15 +3,14 @@ package com.padc.ponnya.thelibraryapp.data.models
 import androidx.lifecycle.LiveData
 import com.padc.ponnya.thelibraryapp.data.vos.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 object NYTimeModelImpl : NYTimeModel, BaseModel() {
 
     override fun getOverview(onSuccess: (List<CategoryVO>) -> Unit, onFailure: (String) -> Unit) {
-        mNYTimeApi.getOverview()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
+        mNYTimeApi.getOverview().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
                 it.results?.lists?.let { categoryList ->
                     val data = categoryList.map { categoryVO ->
                         categoryVO.copy(books = categoryVO.books?.map { bookVO ->
@@ -21,8 +20,7 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
                     }
                     onSuccess(data)
                 }
-            },
-                { onFailure(it.localizedMessage ?: "") })
+            }, { onFailure(it.localizedMessage ?: "") })
     }
 
     override fun saveBookInDatabase(bookVO: BookVO) {
@@ -48,9 +46,9 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
     override fun getSavedBook(): LiveData<List<BookVO>>? =
         mLibraryDatabase?.bookDao()?.selectAllBooks()
 
-    override fun getMovieDetail() {
+    override fun getBookDetail(bookTitle: String): BookVO? =
+        mLibraryDatabase?.bookDao()?.selectBookByTitle(bookTitle)
 
-    }
 
     override fun createShelf(shelf: ShelfVO) {
         mLibraryDatabase?.shelfDao()?.insertSingleShelf(shelf)
@@ -62,8 +60,7 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
             val toUpdateShelf =
                 mLibraryDatabase?.shelfDao()?.selectSingleShelf(it.shelfId)?.let { shelf ->
                     shelf.copy(
-                        bookCount = shelf.bookCount + 1,
-                        shelfCover = book?.bookImage
+                        bookCount = shelf.bookCount + 1, shelfCover = book?.bookImage
                     )
                 }
 
@@ -96,5 +93,27 @@ object NYTimeModelImpl : NYTimeModel, BaseModel() {
     override fun getBooksFormShelf(shelfId: Int): LiveData<ShelvesWithBookPair>? {
         return mLibraryDatabase?.shelfWithBookDao()?.getBooks(shelfId)
     }
+
+    override fun getList(
+        list: String, onSuccess: (List<CategoryVO>) -> Unit, onFailure: (String) -> Unit
+    ) {
+        mNYTimeApi.getList(list = list).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+                it.results?.let(onSuccess)
+            }, {
+                onFailure(it.localizedMessage ?: "")
+            })
+    }
+
+    override fun searchBook(
+        q: String
+    ): Observable<List<BookVO>> = mNYTimeApi.searchBooks(q = q).map {
+        val data: MutableList<BookVO> = mutableListOf()
+        it.items?.forEach { item ->
+            item.volumeInfo?.let { googleBook -> data.add(googleBook.convertToBookVO()) }
+        }
+        data.toList()
+    }.onErrorResumeNext { Observable.just(listOf()) }.subscribeOn(Schedulers.io())
+
 
 }

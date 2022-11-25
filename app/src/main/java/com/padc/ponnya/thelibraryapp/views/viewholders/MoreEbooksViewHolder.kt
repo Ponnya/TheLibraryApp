@@ -2,6 +2,7 @@ package com.padc.ponnya.thelibraryapp.views.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.padc.ponnya.thelibraryapp.R
 import com.padc.ponnya.thelibraryapp.data.vos.BookVO
 import com.padc.ponnya.thelibraryapp.databinding.ViewHolderMoreEbooksBinding
 import com.padc.ponnya.thelibraryapp.delegates.OptionMenuAndDetailDelegate
@@ -25,9 +26,17 @@ class MoreEbooksViewHolder(
 
     fun bindData(bookVO: BookVO) {
         mBookVO = bookVO
-        Glide.with(binding.root)
-            .load(bookVO.bookImage)
-            .into(binding.ivMoreEbookCover)
+        if (bookVO.bookImage != null) {
+            Glide.with(binding.root)
+                .load(bookVO.bookImage)
+                .into(binding.ivMoreEbookCover)
+        }
+        else{
+            Glide.with(binding.root)
+                .load(R.drawable.book_cover)
+                .into(binding.ivMoreEbookCover)
+        }
+
 
         binding.tvMoreEbookName.text = bookVO.bookTitle
         binding.tvMoreEbookAuthor.text = bookVO.author

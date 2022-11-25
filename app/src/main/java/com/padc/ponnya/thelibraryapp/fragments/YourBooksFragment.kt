@@ -99,8 +99,8 @@ class YourBooksFragment : Fragment(), YourBooksFragmentView {
         mCheckedRadioButtonViewAs = SMALL_GIRD
     }
 
-    override fun navigateToDetailScreen() {
-        startActivity(context?.let { DetailActivity.newIntent(it) })
+    override fun navigateToDetailScreen(bookTile: String) {
+        startActivity(context?.let { DetailActivity.newIntent(it, bookTile) })
     }
 
     override fun sortByRecentlyOpened() {
